@@ -104,7 +104,65 @@ html, body {
   align-items: center;
   padding-top: 70px;
 }
+.lottie-container.enlarged {
+  width: 200%;
+  height: 200%;
+  transform: scale(1.8);
+  transform-origin: center center;
+}
 
+/* Hero visual container adjustments for responsiveness */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  position: relative;
+  min-height: 500px;
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 1200px) {
+  .lottie-container.enlarged {
+    width: 180%;
+    height: 180%;
+    transform: scale(1.6);
+  }
+  
+  .hero-visual {
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lottie-container.enlarged {
+    width: 150%;
+    height: 150%;
+    transform: scale(1.4);
+  }
+  
+  .hero-visual {
+    min-height: 400px;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .lottie-container.enlarged {
+    width: 130%;
+    height: 130%;
+    transform: scale(1.2);
+  }
+  
+  .hero-visual {
+    min-height: 350px;
+  }
+}
 /* Geometric Background - updated to be fixed behind all sections */
 .geometric-bg {
   position: fixed;

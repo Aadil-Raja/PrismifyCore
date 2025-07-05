@@ -193,9 +193,9 @@ const PrismifyCore = () => {
                 </button>
               </div>
               <div className="hero-visual">
-                <div className="lottie-container">
+                <div className="lottie-container enlarged">
                   <DotLottieReact
-                    src="https://lottie.host/e25bab63-1666-4dad-91dc-c159aa3e2599/LxVkQasYV1.lottie"
+                    src="https://lottie.host/40be7fac-8f2e-4942-b222-e2a28bc719f7/YSN2KzD2kI.lottie"
                     loop
                     autoplay
                   />
