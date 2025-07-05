@@ -1,413 +1,263 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Code, Brain, Zap, Shield, Globe, Users, ArrowRight, CheckCircle, Star, Play, Menu, X } from 'lucide-react';
-import './App.css'
+import './App.css';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-
-const ModernSoftwareServicesWebsite = () => {
+const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services = [
-    {
-      icon: <Code className="w-8 h-8 icon-glow" />,
-      title: "Web Development",
-      description: "Full-stack web applications with modern frameworks and cutting-edge technologies",
-      features: ["React & Next.js", "Node.js & Python", "Cloud Integration", "Performance Optimization"]
-    },
-    {
-      icon: <Brain className="w-8 h-8 icon-glow" />,
-      title: "AI & Machine Learning",
-      description: "Intelligent solutions powered by artificial intelligence and machine learning",
-      features: ["Custom AI Models", "Natural Language Processing", "Computer Vision", "Predictive Analytics"]
-    },
-    {
-      icon: <Zap className="w-8 h-8 icon-glow" />,
-      title: "Automation & Integration",
-      description: "Streamline your workflow with intelligent automation and seamless integrations",
-      features: ["Process Automation", "API Development", "System Integration", "Workflow Optimization"]
-    },
-    {
-      icon: <Shield className="w-8 h-8 icon-glow" />,
-      title: "Cybersecurity",
-      description: "Protect your digital assets with comprehensive security solutions",
-      features: ["Security Audits", "Penetration Testing", "Compliance Management", "Threat Detection"]
-    },
-    {
-      icon: <Globe className="w-8 h-8 icon-glow" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and migration services for modern businesses",
-      features: ["Cloud Migration", "DevOps & CI/CD", "Infrastructure as Code", "Monitoring & Analytics"]
-    },
-    {
-      icon: <Users className="w-8 h-8 icon-glow" />,
-      title: "Digital Transformation",
-      description: "Transform your business with digital innovation and strategic consulting",
-      features: ["Strategy Consulting", "Digital Roadmaps", "Change Management", "Technology Adoption"]
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  ];
-
-  const stats = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "24/7", label: "Support Available" },
-    { number: "5+", label: "Years Experience" }
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      company: "TechCorp Inc.",
-      text: "Exceptional service and cutting-edge solutions. They transformed our entire digital infrastructure.",
-      rating: 5
-    },
-    {
-      name: "Michael Chen",
-      company: "Innovation Labs",
-      text: "Their AI solutions helped us automate 80% of our manual processes. Incredible results!",
-      rating: 5
-    },
-    {
-      name: "Emily Rodriguez",
-      company: "StartupX",
-      text: "Professional, reliable, and delivered beyond expectations. Highly recommended!",
-      rating: 5
-    }
-  ];
+    setIsMenuOpen(false);
+  };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white overflow-x-hidden gpu-accelerated">
-      {/* Header */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrollY > 50 ? 'header-blur shadow-2xl' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 rounded-xl flex items-center justify-center animate-pulse-glow">
-                <Code className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gradient-primary animate-text-shimmer">
-                PrismifyCore
-              </span>
+    <div className="app">
+    
+       <div className="geometric-bg">
+        <div className="floating-shapes">
+          <div className="shape-container shape-1">
+            <div className="geometric-shape diamond">
+              <div className="face face-1"></div>
+              <div className="face face-2"></div>
+              <div className="face face-3"></div>
+              <div className="face face-4"></div>
             </div>
-            
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="#services" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:text-glow">Services</a>
-              <a href="#about" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:text-glow">About</a>
-              <a href="#testimonials" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:text-glow">Testimonials</a>
-              <a href="#contact" className="text-gray-300 hover:text-purple-400 transition-colors duration-300 hover:text-glow">Contact</a>
-              <button className="btn-primary">
-                Get Started
-              </button>
-            </nav>
-
-            <button 
-              className="md:hidden text-purple-400 hover:text-purple-300 transition-colors duration-300"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
+          
+          {/* <div className="shape-container shape-2">
+            <div className="geometric-shape octahedron">
+              <div className="face face-1"></div>
+              <div className="face face-2"></div>
+              <div className="face face-3"></div>
+              <div className="face face-4"></div>
+              <div className="face face-5"></div>
+              <div className="face face-6"></div>
+              <div className="face face-7"></div>
+              <div className="face face-8"></div>
+            </div>
+          </div> */}
+          {/* <div className="shape-container shape-3">
+            <div className="geometric-shape tetrahedron">
+              <div className="face face-1"></div>
+              <div className="face face-2"></div>
+              <div className="face face-3"></div>
+              <div className="face face-4"></div>
+            </div>
+          </div> */}
+          {/* <div className="shape-container shape-4">
+            <div className="geometric-shape cube">
+              <div className="face face-1"></div>
+              <div className="face face-2"></div>
+              <div className="face face-3"></div>
+              <div className="face face-4"></div>
+              <div className="face face-5"></div>
+              <div className="face face-6"></div>
+            </div>
+          </div> */}
+          {/* <div className="shape-container shape-5">
+            <div className="geometric-shape prism">
+              <div className="face face-1"></div>
+              <div className="face face-2"></div>
+              <div className="face face-3"></div>
+              <div className="face face-4"></div>
+              <div className="face face-5"></div>
+              <div className="face face-6"></div>
+            </div>
+          </div> */}
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden header-blur border-t border-purple-500/20">
-            <div className="px-4 py-4 space-y-3">
-              <a href="#services" className="block py-2 text-gray-300 hover:text-purple-400 transition-colors duration-300">Services</a>
-              <a href="#about" className="block py-2 text-gray-300 hover:text-purple-400 transition-colors duration-300">About</a>
-              <a href="#testimonials" className="block py-2 text-gray-300 hover:text-purple-400 transition-colors duration-300">Testimonials</a>
-              <a href="#contact" className="block py-2 text-gray-300 hover:text-purple-400 transition-colors duration-300">Contact</a>
-              <button className="btn-primary w-full mt-4">
-                Get Started
-              </button>
-            </div>
+        <div className="particle-field">
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+      </div>
+      <header className="header">
+        <div className="container">
+          <div className="logo">
+            <span className="logo-text">PrismifyCore</span>
           </div>
-        )}
+          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+            <button onClick={() => scrollToSection('home')}>Home</button>
+            <button onClick={() => scrollToSection('services')}>Services</button>
+            <button onClick={() => scrollToSection('tech-stack')}>Tech Stack</button>
+            <button onClick={() => scrollToSection('contact')}>Contact</button>
+          </nav>
+          <button 
+            className="menu-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Dynamic Prism Background */}
-        <div className="absolute inset-0 bg-[#0a0a0f]">
-          {/* Animated Gradient Mesh */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#1a1a2e] to-[#0f0f23]"></div>
-          
-          {/* Prism Light Effects */}
-          <div 
-            className="absolute inset-0 opacity-40 transition-opacity duration-1000"
-            style={{
-              background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 69, 199, 0.4) 0%, rgba(59, 130, 246, 0.3) 25%, rgba(16, 185, 129, 0.2) 50%, transparent 70%)`
-            }}
+    <section id="home" className="hero">
+  <div className="container">
+    <div className="hero-content">
+      <div className="hero-text">
+        <h1 className="hero-title">
+          Illuminate Innovation with <span className="gradient-text">PrismifyCore</span>
+        </h1>
+        <p className="hero-subtitle">
+          Transform your digital vision into reality with cutting-edge web solutions 
+          and AI-powered automation that drives results.
+        </p>
+        <button className="cta-button" onClick={() => scrollToSection('contact')}>
+          Get Started
+        </button>
+      </div>
+      <div className="hero-visual">
+        <div className="lottie-container">
+          <DotLottieReact
+            src="https://lottie.host/e25bab63-1666-4dad-91dc-c159aa3e2599/LxVkQasYV1.lottie"
+            loop
+            autoplay
           />
-          
-          {/* Aurora Background */}
-          <div className="absolute inset-0 animate-aurora opacity-30"></div>
-          
-          {/* Geometric Prism Shapes */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="prism-shape prism-1"></div>
-            <div className="prism-shape prism-2"></div>
-            <div className="prism-shape prism-3"></div>
-            <div className="prism-shape prism-4"></div>
-            <div className="prism-shape prism-5"></div>
-            <div className="prism-shape prism-6"></div>
-          </div>
-          
-          {/* Floating Light Particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(100)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute rounded-full animate-float"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${Math.random() * 6 + 2}px`,
-                  height: `${Math.random() * 6 + 2}px`,
-                  background: `hsl(${Math.random() * 360}, 70%, 60%)`,
-                  animation: `float ${3 + Math.random() * 8}s ease-in-out infinite`,
-                  animationDelay: `${Math.random() * 5}s`,
-                  boxShadow: `0 0 ${Math.random() * 30 + 10}px currentColor`,
-                  opacity: Math.random() * 0.8 + 0.2
-                }}
-              />
-            ))}
-          </div>
-          
-          {/* Sparkle Effects */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="sparkle"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 3}s`
-                }}
-              />
-            ))}
-          </div>
-          
-          {/* Prism Light Refraction Lines */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="light-ray light-ray-1"></div>
-            <div className="light-ray light-ray-2"></div>
-            <div className="light-ray light-ray-3"></div>
-          </div>
         </div>
+        {/* <div className="main-prism">
+          <div className="prism-core">
+            <div className="core-face face-1"></div>
+            <div className="core-face face-2"></div>
+            <div className="core-face face-3"></div>
+            <div className="core-face face-4"></div>
+            <div className="core-face face-5"></div>
+            <div className="core-face face-6"></div>
+          </div>
+          <div className="prism-glow"></div>
+        </div> */}
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-          <div className="space-y-10">
-            <div className="space-y-6">
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight mb-8">
-                <span className="text-gradient-primary text-glow">
-                  Transform Through
-                </span>
-                <br />
-                <span className="text-gradient-secondary text-glow">
-                  Innovation
-                </span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                <span className="text-gradient-primary font-semibold">
-                  Advanced Software Solutions, AI Development & Digital Transformation
-                </span>
-              </p>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button className="btn-primary flex items-center space-x-3">
-                <span>Start Your Journey</span>
-                <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-2" />
-              </button>
-              <button className="btn-secondary flex items-center space-x-3">
-                <Play className="w-6 h-6 transition-transform duration-300 group-hover:scale-125" />
-                <span>Explore Solutions</span>
-              </button>
+      {/* About Section */}
+      <section id="about" className="about">
+        <div className="container">
+          <div className="section-header">
+            <h2>About PrismifyCore</h2>
+            <div className="pulse-icon">
+              <div className="pulse-ring"></div>
+              <div className="pulse-ring"></div>
+              <div className="pulse-ring"></div>
             </div>
           </div>
-        </div>
-
-        {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3">
-          <div className="text-sm text-purple-400 font-medium animate-pulse">Scroll to explore</div>
-          <div className="scroll-indicator"></div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-24 gradient-bg-1 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="text-4xl md:text-5xl font-bold text-gradient-primary mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {stat.number}
-                </div>
-                <div className="text-gray-300 group-hover:text-purple-300 transition-colors duration-300 font-medium">{stat.label}</div>
-              </div>
-            ))}
+          <div className="about-content">
+            <p>
+              At PrismifyCore, we believe in the power of technology to transform businesses. 
+              Our mission is to deliver innovative web solutions and intelligent automation 
+              that illuminate new possibilities for growth and efficiency.
+            </p>
+            <p>
+              We combine cutting-edge technology with creative design to build digital 
+              experiences that not only look stunning but perform exceptionally.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">
-              <span className="text-gradient-primary text-glow">
-                Our Services
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Comprehensive technology solutions designed to transform your business and drive innovation
-            </p>
+      <section id="services" className="services">
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Services</h2>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div 
-                key={index} 
-                className="service-card animate-card-hover"
-              >
-                <div className="relative z-10">
-                  <div className="text-purple-400 mb-8 transition-all duration-300 group-hover:text-pink-400">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 text-white group-hover:text-purple-300 transition-colors duration-300">{service.title}</h3>
-                  <p className="text-gray-300 mb-6 group-hover:text-gray-200 transition-colors duration-300">{service.description}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-purple-400 group-hover:text-pink-400 transition-colors duration-300" />
-                        <span className="text-gray-300 text-sm group-hover:text-gray-200 transition-colors duration-300">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 gradient-bg-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-8">
-              <span className="text-gradient-primary text-glow">
-                What Our Clients Say
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-300">
-              Don't just take our word for it - hear from our satisfied clients
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="service-card hover-glow">
-                <div className="flex space-x-1 mb-6">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-purple-400 text-purple-400" />
-                  ))}
-                </div>
-                <p className="text-gray-300 mb-6 text-lg leading-relaxed">"{testimonial.text}"</p>
-                <div>
-                  <div className="font-semibold text-white text-lg">{testimonial.name}</div>
-                  <div className="text-purple-400 text-sm font-medium">{testimonial.company}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 gradient-bg-1">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            <span className="text-gradient-primary text-glow">
-              Ready to Transform Your Business?
-            </span>
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Let's discuss how we can help you automate processes, innovate solutions, and elevate your digital presence.
-          </p>
-          <button className="btn-primary flex items-center space-x-3 mx-auto">
-            <span>Start Your Project</span>
-            <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-2" />
-          </button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0F0F14] py-16 border-t border-purple-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-purple-600 via-pink-600 to-cyan-600 rounded-xl flex items-center justify-center animate-pulse-glow">
-                  <Code className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold text-gradient-primary">
-                  PrismifyCore
-                </span>
-              </div>
-              <p className="text-gray-400 text-lg">
-                Transform Through Innovation
+              <h3>Web Apps</h3>
+              <p>
+                Build scalable, responsive web applications with modern frameworks 
+                and best practices. From concept to deployment, we create digital 
+                experiences that engage and convert.
               </p>
             </div>
-            <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">Services</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Web Development</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">AI & Machine Learning</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Automation</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Cloud Solutions</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">About Us</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Careers</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Blog</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Contact</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-6 text-white text-lg">Connect</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">LinkedIn</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Twitter</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">GitHub</li>
-                <li className="hover:text-purple-400 transition-colors duration-300 cursor-pointer">Email</li>
-              </ul>
+            <div className="service-card">
+              <div className="service-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3>AI Automation</h3>
+              <p>
+                Harness the power of artificial intelligence to automate workflows, 
+                enhance decision-making, and unlock new levels of productivity 
+                for your business operations.
+              </p>
             </div>
           </div>
-          <div className="border-t border-purple-500/20 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 PrismifyCore. All rights reserved.</p>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section id="tech-stack" className="tech-stack">
+        <div className="container">
+          <div className="section-header">
+            <h2>Tech Stack</h2>
+          </div>
+          <div className="tech-grid">
+            <div className="tech-card">
+              <div className="tech-icon react-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89s-.84 1.85-1.87 1.85S10.13 13.04 10.13 12s.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.37 1.95-1.47-.84-1.63-3.05-1.01-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1.01-5.63 1.46-.84 3.45.12 5.37 1.95 1.92-1.83 3.91-2.79 5.37-1.95"/>
+                </svg>
+              </div>
+              <h3>React</h3>
+              <p>Modern component-based architecture for building dynamic user interfaces</p>
+            </div>
+            <div className="tech-card">
+              <div className="tech-icon node-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l1.95 1.12c.95.46 1.27.46 1.71.46.85 0 1.31-.52 1.31-1.4V9.47c0-.16-.14-.3-.31-.3H7.18c-.18 0-.31.14-.31.31v8.17c0 .64-.69 1.28-1.8.73l-1.85-1.12c-.10-.06-.17-.17-.17-.28V8.41c0-.12.07-.23.17-.28l7.44-4.3c.10-.06.24-.06.33 0l7.44 4.3c.10.05.17.16.17.28v8.58c0 .11-.07.22-.17.28l-7.44 4.3c-.09.06-.24.06-.33 0l-1.9-1.05c-.08-.04-.16-.04-.21 0-.26.15-.31.22-.76.46-.14.08-.35.2-.35.47 0 .18.14.35.33.47l2.49 1.45c.27.16.58.16.85 0l7.44-4.3c.48-.28.78-.8.78-1.36V8.41c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.13-.51-.2-.78-.2zm-5.28 7.65c2.03 0 3.31.89 3.31 2.47 0 1.68-1.18 2.03-3.08 2.32-1.49.23-1.8.35-1.8.76 0 .34.31.76 1.46.76.87 0 1.83-.19 2.35-.48.08-.05.18-.03.21.05l.6 1.04c.05.08.03.18-.05.26-.82.66-1.94.85-3.09.85-2.06 0-3.35-.85-3.35-2.51 0-1.67 1.18-2.24 3.23-2.32 1.52-.07 1.65-.35 1.65-.73 0-.31-.15-.73-1.46-.73-.87 0-1.83.19-2.35.48-.08.05-.18.03-.21-.05l-.6-1.04c-.05-.08-.03-.18.05-.26.82-.66 1.94-.85 3.09-.85z"/>
+                </svg>
+              </div>
+              <h3>Node.js</h3>
+              <p>Scalable server-side JavaScript runtime for building robust backend systems</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer/Contact Section */}
+      <footer id="contact" className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-main">
+              <h3>Ready to Transform Your Ideas?</h3>
+              <p>Let's discuss how PrismifyCore can illuminate your next project.</p>
+              <div className="contact-info">
+                <a href="mailto:contact@prismifycore.com" className="contact-link">
+                  contact@prismifycore.com
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>&copy; 2024 PrismifyCore. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -415,4 +265,4 @@ const ModernSoftwareServicesWebsite = () => {
   );
 };
 
-export default ModernSoftwareServicesWebsite;
+export default PrismifyCore;
