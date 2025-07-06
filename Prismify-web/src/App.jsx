@@ -4,6 +4,8 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import logo from './assets/logo_with_no_bg.png';
 import ServicesSlider from './components/servicesslider/Services';
 import HeroSection from './components/Hero/HeroSection';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -159,28 +161,7 @@ const PrismifyCore = () => {
           <div className="connection-line line-8"></div>
         </div>
       </div>
-      <header className="header">
-        <div className="container">
-          <div className="logo">
-           <img src={logo} alt="PrismifyCore Logo" className="logo-image" />
-            {/* <span className="logo-text">PrismifyCore</span> */}
-          </div>
-          <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <button onClick={() => scrollToSection('home')}>Home</button>
-            <button onClick={() => scrollToSection('services')}>Services</button>
-            <button onClick={() => scrollToSection('tech-stack')}>Tech Stack</button>
-            <button onClick={() => scrollToSection('contact')}>Contact</button>
-          </nav>
-          <button
-            className="menu-toggle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-      </header>
+     <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
 
       {/* Hero Section */}
         {/* <div className="section-container">
@@ -285,25 +266,8 @@ const PrismifyCore = () => {
 
 
       {/* Footer/Contact Section */}
-
-        <footer id="contact" className="footer">
-          <div className="container">
-            <div className="footer-content">
-              <div className="footer-main">
-                <h3>Ready to Transform Your Ideas?</h3>
-                <p>Let's discuss how PrismifyCore can illuminate your next project.</p>
-                <div className="contact-info">
-                  <a href="mailto:contact@prismifycore.com" className="contact-link">
-                    contact@prismifycore.com
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="footer-bottom">
-              <p>&copy; 2024 PrismifyCore. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+          <Footer />
+    
       </div>
 
   );

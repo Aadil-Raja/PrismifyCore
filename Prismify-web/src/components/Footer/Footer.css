@@ -1,0 +1,55 @@
+.footer {
+  background: rgba(26, 13, 46, 0.8);
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  padding: 60px 0 30px;
+}
+
+.footer-content {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-main h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.footer-main p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 25px;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+
+
+  .footer-main h3 {
+    font-size: 1.5rem;
+  }
+}
+
+.contact-link {
+  color: #8b5cf6;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #a855f7;
+}
