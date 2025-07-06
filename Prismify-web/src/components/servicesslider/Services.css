@@ -1,0 +1,268 @@
+#services {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-header {
+  text-align: center;
+  position: relative;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.section-header .pulse-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.pulse-ring {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #8a2be2;
+  position: absolute;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 4rem auto;
+  line-height: 1.6;
+}
+
+.slider-3d-wrapper {
+  position: relative;
+  margin: 0 auto;
+  height: 400px;
+  width: 100%;
+  max-width: 1200px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.service-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-card .icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  color: #8a2be2;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+
+/* Medium screen (tablets) */
+@media (max-width: 1024px) {
+  .slider-card {
+    width: 200px;
+  }
+}
+
+/* Small screen (mobile) */
+@media (max-width: 640px) {
+  .slider-card {
+    width: 150px;
+  }
+}
+
+.slider-button {
+  position: absolute;
+  top: 55%; /* Shift down */
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(138, 43, 226, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 40;
+}
+
+/* Place buttons dynamically using percentages */
+.slider-button.left {
+  left: calc(50% - 500px); /* approx 1200/2 - 3*cardWidth/2 + spacing */
+}
+
+.slider-button.right {
+  right: calc(50% - 500px);
+}
+
+/* Make them closer on smaller screens */
+@media (max-width: 1024px) {
+  .slider-button.left {
+    left: calc(50% - 370px);
+  }
+
+  .slider-button.right {
+    right: calc(50% - 370px);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider-button.left {
+    left: calc(50% - 240px);
+  }
+
+  .slider-button.right {
+    right: calc(50% - 240px);
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-button.left {
+    left: calc(50% - 160px);
+  }
+
+  .slider-button.right {
+    right: calc(50% - 160px);
+  }
+}
+
+
+.slider-button:hover {
+  background: rgba(138, 43, 226, 0.4);
+}
+
+
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 0.75rem;
+}
+
+.slider-dot {
+  height: 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+  width: 32px;
+  background: #8a2be2;
+}
+
+.slider-dot.inactive {
+  width: 12px;
+  background: rgba(138, 43, 226, 0.3);
+}
+
+.slider-dot.inactive:hover {
+  background: rgba(138, 43, 226, 0.5);
+}
+
+.service-info {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.service-info-box {
+  display: inline-block;
+  background: rgba(138, 43, 226, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+}
+
+.service-info-box span:first-child {
+  color: #8a2be2;
+  font-weight: 600;
+}
+
+.service-info-box span:last-child {
+  color: #a0a0a0;
+  margin-left: 0.5rem;
+}
+
+/* Background Elements */
+.services-blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.blur-top-left {
+  top: 80px;
+  left: 40px;
+  width: 128px;
+  height: 128px;
+  background: rgba(138, 43, 226, 0.05);
+}
+
+.blur-bottom-right {
+  bottom: 80px;
+  right: 40px;
+  width: 160px;
+  height: 160px;
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.blur-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(138, 43, 226, 0.1);
+  filter: blur(40px);
+}

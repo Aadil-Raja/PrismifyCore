@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import logo from './assets/logo_with_no_bg.png';
+import ServicesSlider from './components/servicesslider/Services';
+import HeroSection from './components/Hero/HeroSection';
+
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -19,6 +22,9 @@ const PrismifyCore = () => {
     }
     setIsMenuOpen(false);
   };
+
+
+
 
   return (
 
@@ -177,7 +183,7 @@ const PrismifyCore = () => {
       </header>
 
       {/* Hero Section */}
-        <div className="section-container">
+        {/* <div className="section-container">
         <section id="home" className="hero">
           <div className="container">
             <div className="hero-content">
@@ -206,7 +212,8 @@ const PrismifyCore = () => {
             </div>
           </div>
         </section>
-        </div>
+        </div> */}
+      <HeroSection scrollToSection={scrollToSection} />
       
 
       {/* About Section */}
@@ -240,42 +247,9 @@ const PrismifyCore = () => {
 
       {/* Services Section */}
 
-        <section id="services" className="services">
-                  <div className="container">
-            <div className="section-header">
-              <h2>Our Services</h2>
-            </div>
-            <div className="services-grid">
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                </div>
-                <h3>Web Apps</h3>
-                <p>
-                  Build scalable, responsive web applications with modern frameworks
-                  and best practices. From concept to deployment, we create digital
-                  experiences that engage and convert.
-                </p>
-              </div>
-              <div className="service-card">
-                <div className="service-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3>AI Automation</h3>
-                <p>
-                  Harness the power of artificial intelligence to automate workflows,
-                  enhance decision-making, and unlock new levels of productivity
-                  for your business operations.
-                </p>
-              </div>
-            </div>
-          </div>
+        <ServicesSlider />
+      
 
-        </section>
       
 
       {/* Tech Stack Section */}
@@ -286,8 +260,8 @@ const PrismifyCore = () => {
             <div className="section-header">
               <h2>Tech Stack</h2>
             </div>
-            <div className="services-grid">
-              <div className="service-card">
+            <div className="tech-grid">
+              <div className="tech-card">
                 <div className="tech-icon react-icon">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 10.11c1.03 0 1.87.84 1.87 1.89s-.84 1.85-1.87 1.85S10.13 13.04 10.13 12s.84-1.89 1.87-1.89M7.37 20c.63.38 2.01-.2 3.6-1.7-.52-.59-1.03-1.23-1.51-1.9a22.7 22.7 0 0 1-2.4-.36c-.51 2.14-.32 3.61.31 3.96m.71-5.74l-.29-.51c-.11.29-.22.58-.29.86.27.06.57.11.88.16l-.3-.51m6.54-.76l.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.52.59 1.03 1.23 1.51 1.9.82.08 1.63.2 2.4.36.51-2.14.32-3.61-.32-3.96m-.7 5.74l.29.51c.11-.29.22-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1.01 5.63 2.54.75 4.37 1.99 4.37 3.68s-1.83 2.93-4.37 3.68c.62 2.58.46 4.79-1.01 5.63-1.46.84-3.45-.12-5.37-1.95-1.92 1.83-3.91 2.79-5.37 1.95-1.47-.84-1.63-3.05-1.01-5.63-2.54-.75-4.37-1.99-4.37-3.68s1.83-2.93 4.37-3.68c-.62-2.58-.46-4.79 1.01-5.63 1.46-.84 3.45.12 5.37 1.95 1.92-1.83 3.91-2.79 5.37-1.95" />
@@ -296,7 +270,7 @@ const PrismifyCore = () => {
                 <h3>React</h3>
                 <p>Modern component-based architecture for building dynamic user interfaces</p>
               </div>
-              <div className="service-card">
+              <div className="tech-card">
                 <div className="tech-icon node-icon">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l1.95 1.12c.95.46 1.27.46 1.71.46.85 0 1.31-.52 1.31-1.4V9.47c0-.16-.14-.3-.31-.3H7.18c-.18 0-.31.14-.31.31v8.17c0 .64-.69 1.28-1.8.73l-1.85-1.12c-.10-.06-.17-.17-.17-.28V8.41c0-.12.07-.23.17-.28l7.44-4.3c.10-.06.24-.06.33 0l7.44 4.3c.10.05.17.16.17.28v8.58c0 .11-.07.22-.17.28l-7.44 4.3c-.09.06-.24.06-.33 0l-1.9-1.05c-.08-.04-.16-.04-.21 0-.26.15-.31.22-.76.46-.14.08-.35.2-.35.47 0 .18.14.35.33.47l2.49 1.45c.27.16.58.16.85 0l7.44-4.3c.48-.28.78-.8.78-1.36V8.41c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.13-.51-.2-.78-.2zm-5.28 7.65c2.03 0 3.31.89 3.31 2.47 0 1.68-1.18 2.03-3.08 2.32-1.49.23-1.8.35-1.8.76 0 .34.31.76 1.46.76.87 0 1.83-.19 2.35-.48.08-.05.18-.03.21.05l.6 1.04c.05.08.03.18-.05.26-.82.66-1.94.85-3.09.85-2.06 0-3.35-.85-3.35-2.51 0-1.67 1.18-2.24 3.23-2.32 1.52-.07 1.65-.35 1.65-.73 0-.31-.15-.73-1.46-.73-.87 0-1.83.19-2.35.48-.08.05-.18.03-.21-.05l-.6-1.04c-.05-.08-.03-.18.05-.26.82-.66 1.94-.85 3.09-.85z" />
