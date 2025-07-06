@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-
+import logo from './assets/logo_with_no_bg.png';
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -156,7 +156,8 @@ const PrismifyCore = () => {
       <header className="header">
         <div className="container">
           <div className="logo">
-            <span className="logo-text">PrismifyCore</span>
+           <img src={logo} alt="PrismifyCore Logo" className="logo-image" />
+            {/* <span className="logo-text">PrismifyCore</span> */}
           </div>
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
             <button onClick={() => scrollToSection('home')}>Home</button>
@@ -195,8 +196,9 @@ const PrismifyCore = () => {
               <div className="hero-visual">
                 <div className="lottie-container enlarged">
                   <DotLottieReact
-                    src="https://lottie.host/40be7fac-8f2e-4942-b222-e2a28bc719f7/YSN2KzD2kI.lottie"
-                    loop
+                     //src="https://lottie.host/34acda39-5016-4143-86e8-322ce66dc9ab/VALkPyktOv.lottie"
+                       src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
+                     loop
                     autoplay
                   />
                 </div>

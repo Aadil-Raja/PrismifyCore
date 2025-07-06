@@ -48,15 +48,30 @@ html, body {
   align-items: center;
   height: 70px;
 }
-
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo-image {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
+}
 .logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+/* .logo-text {
   font-size: 24px;
   font-weight: 700;
   background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+} */
 
 .nav {
   display: flex;
