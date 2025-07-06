@@ -1,0 +1,84 @@
+.tech-stack {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    padding: 25px;
+  }
+
+  .tech-stack {
+    padding: 60px 0;
+  }
+}
+
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.tech-card {
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.tech-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+}
+
+.tech-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.react-icon {
+  color: #61dafb;
+}
+
+.node-icon {
+  color: #68a063;
+}
+
+.tech-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.tech-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+
+
+@media (max-width: 768px) {
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+ 
+}

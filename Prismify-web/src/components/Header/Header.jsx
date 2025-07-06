@@ -6,9 +6,9 @@ const Header = ({ isMenuOpen, setIsMenuOpen, scrollToSection }) => {
   return (
     <header className="header">
       <div className="container">
-        <div className="logo">
-          <img src={logo} alt="PrismifyCore Logo" className="logo-image" />
-          {/* <span className="logo-text">PrismifyCore</span> */}
+       <div className="logo">
+          {/* <img src={logo} alt="PrismifyCore Logo" className="logo-image" /> */}
+          <span className="logo-text">PrismifyCore</span>
         </div>
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <button onClick={() => scrollToSection('home')}>Home</button>
