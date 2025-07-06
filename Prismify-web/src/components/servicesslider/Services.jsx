@@ -122,15 +122,10 @@ const ServicesSlider = () => {
 
   return (
     <section id="services">
-      <div className="section-container">
-        <div className="container">
+      <div className="container">
+        <div className="section-container">
           <div className="section-header">
             <h2>Our Services</h2>
-            <div className="pulse-icon">
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
-            </div>
           </div>
 
           <p className="section-subtitle">

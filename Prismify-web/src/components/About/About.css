@@ -196,3 +196,28 @@
   0% { transform: scale(0.8); opacity: 1; }
   100% { transform: scale(1.8); opacity: 0; }
 }
+
+/* Typewriter Effect Styles */
+.typewriter-container {
+  margin: 16px 0;
+  min-height: 32px;
+}
+
+.typewriter-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(139, 92, 246, 0.9);
+  font-style: italic;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.cursor {
+  animation: blink 1s infinite;
+  color: rgba(139, 92, 246, 0.7);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

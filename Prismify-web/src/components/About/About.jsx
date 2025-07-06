@@ -1,17 +1,38 @@
-import React from 'react';
-import './About.css';
+import React, { useState, useEffect } from 'react';
+import './About.css'
 
 const About = () => {
+  const [typedText, setTypedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const fullText = "Transforming visions into digital reality";
+  
+  useEffect(() => {
+    setIsVisible(true);
+    
+    const timer = setTimeout(() => {
+      if (currentIndex < fullText.length) {
+        setTypedText(fullText.slice(0, currentIndex + 1));
+        setCurrentIndex(currentIndex + 1);
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [currentIndex, fullText]);
+
+
   return (
-    <section id="about" className="about">
-      <div className="section-container">
-        <div className="container">
+    <section id="about" className='about'>
+      <div className="container">
+        <div className="section-container">
           <div className="section-header">
-            <h2>About PrismifyCore</h2>
-            <div className="pulse-icon">
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
-              <div className="pulse-ring"></div>
+            <h2>About Us</h2>
+            <div className="typewriter-container">
+              <p className="typewriter-text">
+                {typedText}
+                <span className="cursor">|</span>
+              </p>
             </div>
           </div>
           <div className="about-content">
@@ -24,6 +45,7 @@ const About = () => {
               We combine cutting-edge technology with creative design to build digital
               experiences that not only look stunning but perform exceptionally.
             </p>
+            
           </div>
         </div>
       </div>
