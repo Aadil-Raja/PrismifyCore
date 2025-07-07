@@ -12,11 +12,21 @@ import TechStack from './components/TechStack/TechStack';
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Preload critical resources and simulate loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const scrollToSection = (sectionId) => {
@@ -27,15 +37,18 @@ const PrismifyCore = () => {
     setIsMenuOpen(false);
   };
 
-
-
+  // Show loader while loading
+  if (isLoading) {
+    return (
+      <div className="app-loader">
+        <div className="loader-spinner"></div>
+      </div>
+    );
+  }
 
   return (
-
-    // {/* Shapes Description And Particle Effect*/}
-
     <div className="app">
-       // {/* Shapes Description And Particle Effect*/}
+      {/* Shapes Description And Particle Effect*/}
       <div className="geometric-bg">
         <div className="floating-shapes">
           <div className="shape-container shape-1">
@@ -163,33 +176,23 @@ const PrismifyCore = () => {
           <div className="connection-line line-8"></div>
         </div>
       </div>
-     <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
+      
+      <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
 
-  ZZ
       <HeroSection scrollToSection={scrollToSection} />
       
-
       {/* About Section */}
-             <About />
+      <About />
        
-      
-
       {/* Services Section */}
-
-        <ServicesSlider />
+      <ServicesSlider />
       
-
-      
-
       {/* Tech Stack Section */}
- <TechStack />
-
+      <TechStack />
 
       {/* Footer/Contact Section */}
-          <Footer />
-    
-      </div>
-
+      <Footer />
+    </div>
   );
 };
 
