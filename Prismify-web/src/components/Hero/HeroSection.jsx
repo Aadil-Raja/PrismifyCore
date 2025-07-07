@@ -49,20 +49,7 @@ const HeroSection = ({ scrollToSection }) => {
                 <button className="btn-secondary" onClick={() => scrollToSection('services')}>Explore Services</button>
               </div>
 
-              <div className="hero-stats">
-                <div>
-                  <div className="hero-number purple">100+</div>
-                  <div className="hero-label">Projects Delivered</div>
-                </div>
-                <div>
-                  <div className="hero-number blue">50+</div>
-                  <div className="hero-label">Happy Clients</div>
-                </div>
-                <div>
-                  <div className="hero-number green">24/7</div>
-                  <div className="hero-label">Support</div>
-                </div>
-              </div>
+    
             </div>
 
             <div className="hero-visual">
