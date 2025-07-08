@@ -51,9 +51,9 @@ const PrismifyCore = () => {
   return (
     <div className="app">
       {/* Shapes Description And Particle Effect*/}
-      <div className="geometric-bg">
-        <div className="floating-shapes">
-          <div className="shape-container shape-1">
+      {/* <div className="geometric-bg">
+        <div className="floating-shapes"> */}
+          {/* <div className="shape-container shape-1">
             <div className="geometric-shape neural-node">
               <div className="node-core"></div>
               <div className="node-ring ring-1"></div>
@@ -64,7 +64,7 @@ const PrismifyCore = () => {
               <div className="connection connection-3"></div>
               <div className="connection connection-4"></div>
             </div>
-          </div>
+          </div> */}
 
           {/* <div className="shape-container shape-2">
             <div className="geometric-shape hexagonal-prism">
@@ -79,7 +79,7 @@ const PrismifyCore = () => {
             </div>
           </div> */}
 
-          <div className="shape-container shape-3">
+          {/* <div className="shape-container shape-3">
             <div className="geometric-shape data-crystal">
               <div className="crystal-core"></div>
               <div className="crystal-layer layer-1"></div>
@@ -105,7 +105,7 @@ const PrismifyCore = () => {
               <div className="network-connection conn-5"></div>
               <div className="network-connection conn-6"></div>
             </div>
-          </div>
+          </div> */}
 
           {/* <div className="shape-container shape-5">
             <div className="geometric-shape quantum-prism">
@@ -132,9 +132,9 @@ const PrismifyCore = () => {
               <div className="holo-glow"></div>
             </div>
           </div> */}
-        </div>
+       {/* </div> */}
 
-        <div className="particle-field">
+        {/* <div className="particle-field">
           <div className="particle particle-small"></div>
           <div className="particle particle-medium"></div>
           <div className="particle particle-large"></div>
@@ -176,8 +176,8 @@ const PrismifyCore = () => {
           <div className="connection-line line-6"></div>
           <div className="connection-line line-7"></div>
           <div className="connection-line line-8"></div>
-        </div>
-      </div>
+        </div> */}
+      {/* // </div> */}
       
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} scrollToSection={scrollToSection} />
 
