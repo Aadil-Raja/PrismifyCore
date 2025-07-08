@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './Services.css';
 
 const ServicesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
 
-  const services = [
+  const services = useMemo(() => [
     {
       id: 1,
       title: "Web Apps",
@@ -66,59 +67,76 @@ const ServicesSlider = () => {
         </svg>
       )
     }
-  ];
+  ], []);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentSlide((prev) => (prev + 1) % services.length);
-  };
+    setTimeout(() => setIsAnimating(false), 300);
+  }, [services.length, isAnimating]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
     setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
-  };
+    setTimeout(() => setIsAnimating(false), 300);
+  }, [services.length, isAnimating]);
 
-  const goToSlide = (index) => {
+  const goToSlide = useCallback((index) => {
+    if (isAnimating || index === currentSlide) return;
+    setIsAnimating(true);
     setCurrentSlide(index);
-  };
+    setTimeout(() => setIsAnimating(false), 300);
+  }, [currentSlide, isAnimating]);
+
+  // Memoize card styles to prevent recalculation
+  const cardStyles = useMemo(() => {
+    return services.map((_, index) => {
+      const total = services.length;
+      const offset = (index - currentSlide + total) % total;
+      
+      let className = 'service-card';
+      let style = {};
+
+      if (offset === 0) {
+        className += ' active';
+        style = { '--card-index': 0 };
+      } else if (offset === 1) {
+        className += ' next';
+        style = { '--card-index': 1 };
+      } else if (offset === total - 1) {
+        className += ' prev';
+        style = { '--card-index': -1 };
+      } else {
+        className += ' hidden';
+        style = { '--card-index': offset > total / 2 ? -(total - offset) : offset };
+      }
+
+      if (hoveredIndex === index) {
+        className += ' hovered';
+      }
+
+      return { className, style };
+    });
+  }, [currentSlide, hoveredIndex, services.length]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 10000);
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        nextSlide();
+      }
+    }, 5000);
     return () => clearInterval(interval);
+  }, [nextSlide, isAnimating]);
+
+  const handleMouseEnter = useCallback((index) => {
+    setHoveredIndex(index);
   }, []);
 
-  const getCardStyle = (index) => {
-    const total = services.length;
-    const offset = (index - currentSlide + total) % total;
-    let transform = '', opacity = 0, zIndex = 0, scale = 0.8;
-
-    if (offset === 0) {
-      transform = 'translate(-50%, -50%) translateX(0) translateZ(0) rotateY(0deg)';
-      opacity = 1;
-      zIndex = 30;
-      scale = 1;
-    } else if (offset === 1 || offset === total - 1) {
-      const isNext = offset === 1;
-      transform = `translate(-50%, -50%) translateX(${isNext ? '280px' : '-280px'}) translateZ(-100px) rotateY(${isNext ? '-25deg' : '25deg'})`;
-      opacity = 0.7;
-      zIndex = 20;
-      scale = 0.85;
-    } else {
-      transform = 'translate(-50%, -50%) translateX(0) translateZ(-200px) rotateY(0deg)';
-      opacity = 0;
-      zIndex = 10;
-      scale = 0.7;
-    }
-
-    if (hoveredIndex === index) {
-      scale = offset === 0 ? 1.05 : 0.95;
-      zIndex += 5;
-    }
-
-    return {
-      transform: `${transform} scale(${scale})`,
-      opacity,
-      zIndex
-    };
-  };
+  const handleMouseLeave = useCallback(() => {
+    setHoveredIndex(null);
+  }, []);
 
   return (
     <section id="services">
@@ -136,10 +154,10 @@ const ServicesSlider = () => {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className="service-card"
-                style={getCardStyle(index)}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                className={cardStyles[index].className}
+                style={cardStyles[index].style}
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
                 onClick={() => goToSlide(index)}
               >
                 <div className="icon">{service.icon}</div>
@@ -149,27 +167,39 @@ const ServicesSlider = () => {
             ))}
           </div>
 
-          {/* Arrows */}
-          <button onClick={prevSlide} className="slider-button left">
+          {/* Navigation Buttons */}
+          <button 
+            onClick={prevSlide} 
+            className="slider-button left"
+            disabled={isAnimating}
+            aria-label="Previous slide"
+          >
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
-          <button onClick={nextSlide} className="slider-button right">
+          <button 
+            onClick={nextSlide} 
+            className="slider-button right"
+            disabled={isAnimating}
+            aria-label="Next slide"
+          >
             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-          {/* Dots */}
+          {/* Dots Navigation */}
           <div className="slider-dots">
             {services.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`slider-dot ${index === currentSlide ? 'active' : 'inactive'}`}
-              ></button>
+                disabled={isAnimating}
+                aria-label={`Go to slide ${index + 1}`}
+              />
             ))}
           </div>
 
