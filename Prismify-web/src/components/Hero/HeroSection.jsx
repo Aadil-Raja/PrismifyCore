@@ -28,10 +28,10 @@ const HeroSection = ({ scrollToSection }) => {
         <div className="container">
           <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
             <div className="hero-text">
-              <div className="hero-badge">
+              {/* <div className="hero-badge">
                 <div className="hero-dot"></div>
                 <span>Welcome to the Future</span>
-              </div>
+              </div> */}
 
               <h1 className="hero-heading">
                 <span>{rotatingTexts[textIndex].split(' ')[0]}</span>
