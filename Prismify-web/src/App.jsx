@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import About from './components/About/About';
 import TechStack from './components/TechStack/TechStack';
+import Purpose from './components/Purpose/purpose';
 
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -181,6 +182,7 @@ const PrismifyCore = () => {
 
       <HeroSection scrollToSection={scrollToSection} />
       
+      <Purpose />
       {/* About Section */}
       <About />
        
