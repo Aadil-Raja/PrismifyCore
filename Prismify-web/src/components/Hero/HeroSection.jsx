@@ -52,7 +52,7 @@ const HeroSection = ({ scrollToSection }) => {
     
             </div>
 
-            {/* <div className="hero-visual">
+            <div className="hero-visual">
               <div className="ring ring1"></div>
               <div className="ring ring2"></div>
               <div className="ring ring3"></div>
@@ -65,7 +65,7 @@ const HeroSection = ({ scrollToSection }) => {
               </div>
               <div className="floating-box"></div>
               <div className="floating-circle"></div>
-            </div> */}
+            </div>
           </div>
         </div>
 
