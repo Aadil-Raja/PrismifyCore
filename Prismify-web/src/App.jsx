@@ -188,7 +188,7 @@ const PrismifyCore = () => {
       <About />
        
       {/* Services Section */}
-      {/* <ServicesSlider /> */}
+      <ServicesSlider />
       
       {/* Why Choose Us Section */}
       <WhyChooseUs />
