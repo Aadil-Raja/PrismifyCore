@@ -4,6 +4,7 @@ import './Services.css';
 const ServicesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const services = [
     {
@@ -68,11 +69,16 @@ const ServicesSlider = () => {
     }
   ];
 
-   const visibleSlides = [
-    currentSlide,
-    (currentSlide + 1) % services.length,
-    (currentSlide - 1 + services.length) % services.length
-  ];
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % services.length);
@@ -82,76 +88,146 @@ const ServicesSlider = () => {
     setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
   };
 
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // 3D positioning for desktop
   const getCardStyle = (index) => {
+    if (isMobile) return {}; // No 3D transforms on mobile
+    
     const total = services.length;
     const offset = (index - currentSlide + total) % total;
-
-    let style = {
-      transform: 'translate(-50%, -50%) scale(0.8)',
-      opacity: 0,
-      zIndex: 0,
-    };
+    let transform = '', opacity = 0, zIndex = 0, scale = 0.8;
 
     if (offset === 0) {
-      style = {
-        transform: 'translate(-50%, -50%) scale(1)',
-        opacity: 1,
-        zIndex: 30,
-      };
+      transform = 'translate(-50%, -50%) translateX(0) translateZ(0) rotateY(0deg)';
+      opacity = 1;
+      zIndex = 30;
+      scale = 1;
     } else if (offset === 1 || offset === total - 1) {
-      style = {
-        transform: `translate(-50%, -50%) translateX(${offset === 1 ? '240px' : '-240px'}) scale(0.9)`,
-        opacity: 0.7,
-        zIndex: 20,
-      };
+      const isNext = offset === 1;
+      transform = `translate(-50%, -50%) translateX(${isNext ? '280px' : '-280px'}) translateZ(-100px) rotateY(${isNext ? '-25deg' : '25deg'})`;
+      opacity = 0.7;
+      zIndex = 20;
+      scale = 0.85;
+    } else {
+      transform = 'translate(-50%, -50%) translateX(0) translateZ(-200px) rotateY(0deg)';
+      opacity = 0;
+      zIndex = 10;
+      scale = 0.7;
     }
 
     if (hoveredIndex === index) {
-      style.transform += ' scale(1.05)';
-      style.zIndex += 5;
+      scale = offset === 0 ? 1.05 : 0.95;
+      zIndex += 5;
     }
 
-    return style;
+    return {
+      transform: `${transform} scale(${scale})`,
+      opacity,
+      zIndex
+    };
   };
-
- 
 
   return (
     <section id="services">
-      <div className="section-container">
+  
         <div className="container">
           <div className="section-header">
             <h2>Our Services</h2>
+            <div className="pulse-icon">
+              <div className="pulse-ring"></div>
+              <div className="pulse-ring"></div>
+              <div className="pulse-ring"></div>
+            </div>
           </div>
 
           <p className="section-subtitle">
             Discover our comprehensive range of digital solutions designed to elevate your business
           </p>
 
+          {/* Desktop 3D Slider */}
           <div className="slider-3d-wrapper">
             {services.map((service, index) => (
-              visibleSlides.includes(index) && (
-                <div
-                  key={service.id}
-                  className="service-card"
-                  style={getCardStyle(index)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <div className="icon">{service.icon}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                </div>
-              )
+              <div
+                key={service.id}
+                className="service-card"
+                style={getCardStyle(index)}
+                onMouseEnter={() => !isMobile && setHoveredIndex(index)}
+                onMouseLeave={() => !isMobile && setHoveredIndex(null)}
+                onClick={() => goToSlide(index)}
+              >
+                <div className="icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
             ))}
           </div>
 
-          <button onClick={prevSlide} className="slider-button left">&#8592;</button>
-          <button onClick={nextSlide} className="slider-button right">&#8594;</button>
+          {/* Mobile Vertical Stack */}
+          <div className="mobile-services-grid">
+            {services.map((service, index) => (
+              <div
+                key={service.id}
+                className={`service-card-mobile ${hoveredIndex === index ? 'hovered' : ''}`}
+                onTouchStart={() => setHoveredIndex(index)}
+                onTouchEnd={() => setHoveredIndex(null)}
+                onMouseEnter={() => isMobile && setHoveredIndex(index)}
+                onMouseLeave={() => isMobile && setHoveredIndex(null)}
+              >
+                <div className="icon">{service.icon}</div>
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Buttons - Desktop Only */}
+          <button onClick={prevSlide} className="slider-button left">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <button onClick={nextSlide} className="slider-button right">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Dots Navigation - Desktop Only */}
+          <div className="slider-dots">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`slider-dot ${index === currentSlide ? 'active' : 'inactive'}`}
+              ></button>
+            ))}
+          </div>
+
+          {/* Service Info - Desktop Only */}
+          <div className="service-info">
+            <div className="service-info-box">
+              <span>{currentSlide + 1} / {services.length}</span>
+              <span>{services[currentSlide].title}</span>
+            </div>
+          </div>
         </div>
-      </div>
+      
+
+      <div className="services-blur-circle blur-top-left"></div>
+      <div className="services-blur-circle blur-bottom-right"></div>
+      <div className="services-blur-circle blur-center"></div>
     </section>
   );
 };
 
 export default ServicesSlider;
+
