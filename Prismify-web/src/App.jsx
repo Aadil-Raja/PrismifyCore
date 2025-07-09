@@ -10,6 +10,7 @@ import About from './components/About/About';
 import TechStack from './components/TechStack/TechStack';
 import Purpose from './components/Purpose/purpose';
 import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
+import LetsConnect from './components/LetsConnect/LetsConnect';
 
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -183,18 +184,24 @@ const PrismifyCore = () => {
 
       <HeroSection scrollToSection={scrollToSection} />
       
+      
+
+      {/* Purpose Section */}
       <Purpose />
-      {/* About Section */}
-      <About />
        
       {/* Services Section */}
       <ServicesSlider />
+      
       
       {/* Why Choose Us Section */}
       <WhyChooseUs />
       
       {/* Tech Stack Section */}
       <TechStack />
+
+      {/* Let's Connect Section */}
+      <LetsConnect />
+
 
       {/* Footer/Contact Section */}
       <Footer />
