@@ -38,23 +38,36 @@
   left: 50%;
   width: 300px;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
+  background-color: rgba(18, 18, 30, 0.6); /* fallback color for iOS */
   border: 1px solid rgba(138, 43, 226, 0.3);
   border-radius: 20px;
-  text-align: center;
   color: #fff;
+  text-align: center;
   transition: all 0.4s ease;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transform-origin: center;
 }
 
+/* Enables glass effect only on browsers that fully support it */
+@supports (-webkit-backdrop-filter: blur(20px)) or (backdrop-filter: blur(20px)) {
+  .service-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+
 .service-card .icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem auto;
   color: #8a2be2;
 }
+
 
 .service-card h3 {
   font-size: 1.4rem;

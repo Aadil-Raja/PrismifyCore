@@ -114,10 +114,7 @@ const ServicesSlider = () => {
     return style;
   };
 
-  useEffect(() => {
-    const interval = window.innerWidth > 768 ? setInterval(nextSlide, 10000) : null;
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   return (
     <section id="services">
