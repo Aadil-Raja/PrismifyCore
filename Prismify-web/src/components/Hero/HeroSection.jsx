@@ -58,8 +58,9 @@ const HeroSection = ({ scrollToSection }) => {
               <div className="ring ring3"></div>
               <div className="lottie-wrapper">
                 <DotLottieReact
-                  src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
-                  loop
+                  // src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
+                   loop
+                  src="/hero-animation.lottie"
                   autoplay
                 />
               </div>
