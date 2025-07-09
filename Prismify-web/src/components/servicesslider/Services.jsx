@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Services.css';
 
 const ServicesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const intervalRef = useRef(null);
-  const touchStartRef = useRef(null);
-  const touchEndRef = useRef(null);
 
-  const services = useMemo(() => [
+  const services = [
     {
       id: 1,
       title: "Web Apps",
@@ -71,158 +66,60 @@ const ServicesSlider = () => {
         </svg>
       )
     }
-  ], []);
+  ];
 
-  // Mobile detection with debounced resize handler
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    checkMobile();
-    
-    let resizeTimer;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(checkMobile, 100);
-    };
-    
-    window.addEventListener('resize', handleResize, { passive: true });
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimer);
-    };
-  }, []);
+   const visibleSlides = [
+    currentSlide,
+    (currentSlide + 1) % services.length,
+    (currentSlide - 1 + services.length) % services.length
+  ];
 
-  const nextSlide = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % services.length);
-    
-    // Shorter animation duration for mobile
-    const duration = isMobile ? 200 : 300;
-    setTimeout(() => setIsAnimating(false), duration);
-  }, [services.length, isAnimating, isMobile]);
+  };
 
-  const prevSlide = useCallback(() => {
-    if (isAnimating) return;
-    setIsAnimating(true);
+  const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
-    
-    const duration = isMobile ? 200 : 300;
-    setTimeout(() => setIsAnimating(false), duration);
-  }, [services.length, isAnimating, isMobile]);
+  };
 
-  const goToSlide = useCallback((index) => {
-    if (isAnimating || index === currentSlide) return;
-    setIsAnimating(true);
-    setCurrentSlide(index);
-    
-    const duration = isMobile ? 200 : 300;
-    setTimeout(() => setIsAnimating(false), duration);
-  }, [currentSlide, isAnimating, isMobile]);
+  const getCardStyle = (index) => {
+    const total = services.length;
+    const offset = (index - currentSlide + total) % total;
 
-  // Optimized card styles with mobile-specific calculations
-  const cardStyles = useMemo(() => {
-    return services.map((_, index) => {
-      const total = services.length;
-      const offset = (index - currentSlide + total) % total;
-      
-      let className = 'service-card';
-      let style = {};
+    let style = {
+      transform: 'translate(-50%, -50%) scale(0.8)',
+      opacity: 0,
+      zIndex: 0,
+    };
 
-      if (offset === 0) {
-        className += ' active';
-        style = { '--card-index': 0 };
-      } else if (offset === 1) {
-        className += ' next';
-        style = { '--card-index': 1 };
-      } else if (offset === total - 1) {
-        className += ' prev';
-        style = { '--card-index': -1 };
-      } else {
-        className += ' hidden';
-        style = { '--card-index': offset > total / 2 ? -(total - offset) : offset };
-      }
-
-      // Disable hover effects on mobile for better performance
-      if (hoveredIndex === index && !isMobile) {
-        className += ' hovered';
-      }
-
-      return { className, style };
-    });
-  }, [currentSlide, hoveredIndex, services.length, isMobile]);
-
-  // Auto-slide with longer interval on mobile to reduce CPU usage
-  useEffect(() => {
-    const interval = isMobile ? 6000 : 5000;
-    
-    intervalRef.current = setInterval(() => {
-      if (!isAnimating) {
-        nextSlide();
-      }
-    }, interval);
-    
-    return () => clearInterval(intervalRef.current);
-  }, [nextSlide, isAnimating, isMobile]);
-
-  // Optimized event handlers with passive listeners
-  const handleMouseEnter = useCallback((index) => {
-    if (!isMobile) {
-      setHoveredIndex(index);
+    if (offset === 0) {
+      style = {
+        transform: 'translate(-50%, -50%) scale(1)',
+        opacity: 1,
+        zIndex: 30,
+      };
+    } else if (offset === 1 || offset === total - 1) {
+      style = {
+        transform: `translate(-50%, -50%) translateX(${offset === 1 ? '240px' : '-240px'}) scale(0.9)`,
+        opacity: 0.7,
+        zIndex: 20,
+      };
     }
-  }, [isMobile]);
 
-  const handleMouseLeave = useCallback(() => {
-    if (!isMobile) {
-      setHoveredIndex(null);
+    if (hoveredIndex === index) {
+      style.transform += ' scale(1.05)';
+      style.zIndex += 5;
     }
-  }, [isMobile]);
 
-  // Touch handlers for mobile swipe
-  const handleTouchStart = useCallback((e) => {
-    if (!isMobile) return;
-    touchStartRef.current = e.touches[0].clientX;
-    // Pause auto-slide during touch
-    clearInterval(intervalRef.current);
-  }, [isMobile]);
+    return style;
+  };
 
-  const handleTouchMove = useCallback((e) => {
-    if (!isMobile || !touchStartRef.current) return;
-    touchEndRef.current = e.touches[0].clientX;
-  }, [isMobile]);
-
-  const handleTouchEnd = useCallback(() => {
-    if (!isMobile || !touchStartRef.current || !touchEndRef.current) return;
-    
-    const distance = touchStartRef.current - touchEndRef.current;
-    const minSwipeDistance = 50;
-    
-    if (Math.abs(distance) > minSwipeDistance) {
-      if (distance > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-    
-    touchStartRef.current = null;
-    touchEndRef.current = null;
-    
-    // Resume auto-slide after touch
-    const interval = isMobile ? 6000 : 5000;
-    intervalRef.current = setInterval(() => {
-      if (!isAnimating) {
-        nextSlide();
-      }
-    }, interval);
-  }, [isMobile, nextSlide, prevSlide, isAnimating]);
+ 
 
   return (
     <section id="services">
-      <div className="container">
-        <div className="section-container">
+      <div className="section-container">
+        <div className="container">
           <div className="section-header">
             <h2>Our Services</h2>
           </div>
@@ -231,86 +128,28 @@ const ServicesSlider = () => {
             Discover our comprehensive range of digital solutions designed to elevate your business
           </p>
 
-          <div 
-            className={`slider-3d-wrapper ${isMobile ? 'mobile' : ''}`}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {services.map((service, index) => {
-              const { className, style } = cardStyles[index];
-              
-              return (
+          <div className="slider-3d-wrapper">
+            {services.map((service, index) => (
+              visibleSlides.includes(index) && (
                 <div
                   key={service.id}
-                  className={className}
-                  style={style}
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
-                  onClick={() => goToSlide(index)}
+                  className="service-card"
+                  style={getCardStyle(index)}
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className="icon">{service.icon}</div>
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </div>
-              );
-            })}
-          </div>
-
-          {/* Navigation Buttons - Hidden on mobile */}
-          {!isMobile && (
-            <>
-              <button 
-                onClick={prevSlide} 
-                className="slider-button left"
-                disabled={isAnimating}
-                aria-label="Previous slide"
-              >
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-
-              <button 
-                onClick={nextSlide} 
-                className="slider-button right"
-                disabled={isAnimating}
-                aria-label="Next slide"
-              >
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </>
-          )}
-
-          {/* Dots Navigation */}
-          <div className="slider-dots">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`slider-dot ${index === currentSlide ? 'active' : 'inactive'}`}
-                disabled={isAnimating}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+              )
             ))}
           </div>
 
-          {/* Current Info */}
-          <div className="service-info">
-            <div className="service-info-box">
-              <span>{currentSlide + 1} / {services.length}</span>
-              <span>{services[currentSlide].title}</span>
-            </div>
-          </div>
+          <button onClick={prevSlide} className="slider-button left">&#8592;</button>
+          <button onClick={nextSlide} className="slider-button right">&#8594;</button>
         </div>
       </div>
-
-      {/* Background Blur Elements - Simplified on mobile */}
-      <div className="services-blur-circle blur-top-left"></div>
-      <div className="services-blur-circle blur-bottom-right"></div>
-      {!isMobile && <div className="services-blur-circle blur-center"></div>}
     </section>
   );
 };

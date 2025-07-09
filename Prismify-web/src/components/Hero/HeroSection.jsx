@@ -52,20 +52,21 @@ const HeroSection = ({ scrollToSection }) => {
     
             </div>
 
-            {/* <div className="hero-visual">
+            <div className="hero-visual">
               <div className="ring ring1"></div>
               <div className="ring ring2"></div>
               <div className="ring ring3"></div>
               <div className="lottie-wrapper">
                 <DotLottieReact
-                  src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
-                  loop
+                  // src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
+                   loop
+                  src="/hero-animation.lottie"
                   autoplay
                 />
               </div>
               <div className="floating-box"></div>
               <div className="floating-circle"></div>
-            </div> */}
+            </div>
           </div>
         </div>
 
