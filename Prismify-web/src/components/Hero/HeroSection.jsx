@@ -28,16 +28,16 @@ const HeroSection = ({ scrollToSection }) => {
         <div className="container">
           <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
             <div className="hero-text">
-              {/* <div className="hero-badge">
+              <div className="hero-badge">
                 <div className="hero-dot"></div>
                 <span>Welcome to the Future</span>
-              </div> */}
-{/* 
+              </div>
+
               <h1 className="hero-heading">
                 <span>{rotatingTexts[textIndex].split(' ')[0]}</span>
                 <span className="highlight-text">{rotatingTexts[textIndex].split(' ')[1]}</span>
                 <span className="with-tag">with PrismifyCore</span>
-              </h1> */}
+              </h1>
 
               <p className="hero-subtitle">
                 Transform your digital vision into reality with cutting-edge web solutions
@@ -52,7 +52,7 @@ const HeroSection = ({ scrollToSection }) => {
     
             </div>
 
-            {/* <div className="hero-visual">
+            <div className="hero-visual">
               <div className="ring ring1"></div>
               <div className="ring ring2"></div>
               <div className="ring ring3"></div>
@@ -65,7 +65,7 @@ const HeroSection = ({ scrollToSection }) => {
               </div>
               <div className="floating-box"></div>
               <div className="floating-circle"></div>
-            </div> */}
+            </div>
           </div>
         </div>
 
