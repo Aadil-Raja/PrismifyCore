@@ -32,12 +32,12 @@ const HeroSection = ({ scrollToSection }) => {
                 <div className="hero-dot"></div>
                 <span>Welcome to the Future</span>
               </div> */}
-
+{/* 
               <h1 className="hero-heading">
                 <span>{rotatingTexts[textIndex].split(' ')[0]}</span>
                 <span className="highlight-text">{rotatingTexts[textIndex].split(' ')[1]}</span>
                 <span className="with-tag">with PrismifyCore</span>
-              </h1>
+              </h1> */}
 
               <p className="hero-subtitle">
                 Transform your digital vision into reality with cutting-edge web solutions
