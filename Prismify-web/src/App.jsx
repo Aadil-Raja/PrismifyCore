@@ -11,6 +11,7 @@ import TechStack from './components/TechStack/TechStack';
 import Purpose from './components/Purpose/purpose';
 import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
 import LetsConnect from './components/LetsConnect/LetsConnect';
+import FeaturedProjects from './components/Projects/FeaturedProjects';
 
 const PrismifyCore = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -192,7 +193,11 @@ const PrismifyCore = () => {
       {/* Services Section */}
       <ServicesSlider />
       
-      
+      {/* Featured Projects Section */}
+      <FeaturedProjects />
+
+      {/* About Section */}
+
       {/* Why Choose Us Section */}
       <WhyChooseUs />
       
