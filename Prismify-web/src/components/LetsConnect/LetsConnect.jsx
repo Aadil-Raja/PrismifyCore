@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './LetsConnect.css';
+import axios from 'axios';
 
 const LetsConnect = () => {
   const [formData, setFormData] = useState({
@@ -40,20 +41,30 @@ const LetsConnect = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    try{
+        const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/contact`,    formData
+        );
+
+        setFormData({
+        name: '',
+        email: '',
+        company: '',
+        message: '',
+        });
+        console.log('Form submitted successfully:', response.data);
+        setIsSubmitting(false);
+        alert('Message sent successfully!');
+        
+    }catch (error) {
+        console.error('Error submitting form:', error); 
+         alert('Something went wrong. Please try again later.');
+    }
     
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      message: ''
-    });
-    setIsSubmitting(false);
+    
     
     // Show success message (you can implement this)
-    alert('Message sent successfully!');
+    
   };
 
   return (
