@@ -139,6 +139,7 @@ const ServicesSlider = () => {
     <section id="services">
   
         <div className="container">
+          <div className="section-containerServices">
           <div className="section-header">
             <h2>Our Services</h2>
             <div className="pulse-icon">
@@ -218,6 +219,7 @@ const ServicesSlider = () => {
               <span>{currentSlide + 1} / {services.length}</span>
               <span>{services[currentSlide].title}</span>
             </div>
+          </div>
           </div>
         </div>
       
