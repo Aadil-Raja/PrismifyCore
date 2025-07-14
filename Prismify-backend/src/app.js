@@ -11,8 +11,10 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 // Routes will go here later
 // e.g., app.use('/api/contact', contactRoutes);
 import contactRoutes from './routes/contact.routes.js';
+import adminRoutes from './routes/admin.routes.js';
 
 
+app.use('/api/admin', adminRoutes);
 app.use('/api/contact', contactRoutes);
 
 
