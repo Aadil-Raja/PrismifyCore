@@ -4,11 +4,23 @@
   overflow: hidden;
 }
 
-/* .section-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-} */
+.section-containerServices {
+  position: relative;
+  padding: 20px;
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  min-height: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
 
 .section-header {
   text-align: center;

@@ -4,22 +4,11 @@
   z-index: 1;
 }
 
-@media (max-width: 480px) {
-  .tech-card {
-    padding: 25px;
-  }
-
-  .tech-stack {
-    padding: 60px 0;
-  }
-}
-
-
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -40,7 +29,7 @@
 }
 
 .tech-icon {
-  width: 50px;
+  width: 120px;
   height: 50px;
   margin: 0 auto 15px;
 }
@@ -49,12 +38,40 @@
   width: 100%;
   height: 100%;
 }
+
+.tech-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Icon Colors */
 .react-icon {
-  color: #61dafb;
+  color: #26c1ec;
 }
 
 .node-icon {
-  color: #68a063;
+  color: #1d8d1d;
+}
+
+.python-icon{}
+
+.django-icon {
+  color: #157c54;
+}
+
+.fastapi-icon {
+  color: #009688;
+}
+
+.docker-icon {
+  color: #2496ed;
+}
+
+.kubernetes-icon {
+ 
+  color: #326ce5;
 }
 
 .tech-card h3 {
@@ -70,15 +87,50 @@
   line-height: 1.5;
 }
 
-
-
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    max-width: 900px;
+  }
+}
 
 @media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 600px;
+  }
+  
+  .tech-stack {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    padding: 25px;
+  }
   
   .tech-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
-
- 
+}
+.section-containerTechStack {
+  position: relative;
+  padding: 20px;
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  min-height: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
