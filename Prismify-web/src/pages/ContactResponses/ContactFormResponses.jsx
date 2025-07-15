@@ -13,7 +13,7 @@ const ContactFormResponses = () => {
     const fetchResponses = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/contact/get-all-contacts`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/contact/get-all-contacts`,{ withCredentials: true });
         setResponses(response.data);
         console.log('Fetched responses:', response.data);
       } catch (error) {
