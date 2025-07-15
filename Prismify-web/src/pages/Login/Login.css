@@ -1,0 +1,558 @@
+/* Login Container */
+.prismify-admin-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  overflow: hidden;
+}
+
+.prismify-admin-login-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+}
+
+/* Particles Animation */
+.prismify-admin-login-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.prismify-admin-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  animation: prismify-admin-float 8s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+.prismify-admin-particle-1 {
+  width: 4px;
+  height: 4px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.prismify-admin-particle-2 {
+  width: 6px;
+  height: 6px;
+  top: 20%;
+  right: 15%;
+  animation-delay: -2s;
+  animation-duration: 10s;
+}
+
+.prismify-admin-particle-3 {
+  width: 3px;
+  height: 3px;
+  top: 35%;
+  left: 20%;
+  animation-delay: -4s;
+  animation-duration: 14s;
+}
+
+.prismify-admin-particle-4 {
+  width: 5px;
+  height: 5px;
+  top: 50%;
+  right: 25%;
+  animation-delay: -6s;
+  animation-duration: 8s;
+}
+
+.prismify-admin-particle-5 {
+  width: 4px;
+  height: 4px;
+  top: 65%;
+  left: 30%;
+  animation-delay: -8s;
+  animation-duration: 11s;
+}
+
+.prismify-admin-particle-6 {
+  width: 3px;
+  height: 3px;
+  top: 80%;
+  right: 20%;
+  animation-delay: -10s;
+  animation-duration: 9s;
+}
+
+.prismify-admin-particle-7 {
+  width: 5px;
+  height: 5px;
+  top: 25%;
+  left: 80%;
+  animation-delay: -12s;
+  animation-duration: 13s;
+}
+
+.prismify-admin-particle-8 {
+  width: 4px;
+  height: 4px;
+  top: 75%;
+  left: 75%;
+  animation-delay: -14s;
+  animation-duration: 7s;
+}
+
+.prismify-admin-particle-9 {
+  width: 3px;
+  height: 3px;
+  top: 45%;
+  left: 5%;
+  animation-delay: -16s;
+  animation-duration: 15s;
+}
+
+.prismify-admin-particle-10 {
+  width: 6px;
+  height: 6px;
+  top: 15%;
+  right: 5%;
+  animation-delay: -18s;
+  animation-duration: 6s;
+}
+
+@keyframes prismify-admin-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+/* Login Wrapper */
+.prismify-admin-login-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 20px;
+}
+
+/* Login Card */
+.prismify-admin-login-card {
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: prismify-admin-slideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.prismify-admin-login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.prismify-admin-login-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes prismify-admin-slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Login Header */
+.prismify-admin-login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.prismify-admin-login-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.prismify-admin-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.prismify-admin-logo-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  stroke-width: 2;
+}
+
+.prismify-admin-login-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f3f3f3 0%, #c512f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.prismify-admin-login-subtitle {
+  font-size: 1rem;
+  color: rgba(139, 92, 246, 0.8);
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Form Styles */
+.prismify-admin-login-form {
+  margin-bottom: 30px;
+}
+
+.prismify-admin-form-group {
+  margin-bottom: 24px;
+}
+
+.prismify-admin-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.prismify-admin-input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: rgba(139, 92, 246, 0.6);
+  z-index: 2;
+}
+
+.prismify-admin-input-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2;
+}
+
+.prismify-admin-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px 0 48px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.prismify-admin-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.prismify-admin-input:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+  background: rgba(139, 92, 246, 0.12);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.prismify-admin-input:focus + .prismify-admin-input-icon {
+  color: rgba(139, 92, 246, 0.9);
+}
+
+.prismify-admin-input-error {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.prismify-admin-input-error:focus {
+  border-color: rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.prismify-admin-password-toggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  color: rgba(139, 92, 246, 0.6);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.prismify-admin-password-toggle:hover {
+  color: rgba(139, 92, 246, 0.9);
+}
+
+.prismify-admin-password-toggle svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 2;
+}
+
+.prismify-admin-error-message {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: rgba(239, 68, 68, 0.8);
+  font-weight: 400;
+}
+
+.prismify-admin-success-message {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.875rem;
+  color: rgba(16, 185, 129, 0.8);
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Login Button */
+.prismify-admin-login-button {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.prismify-admin-login-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.prismify-admin-login-button:hover::before {
+  left: 100%;
+}
+
+.prismify-admin-login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.prismify-admin-login-button:active {
+  transform: translateY(0);
+}
+
+.prismify-admin-login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.prismify-admin-loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prismify-admin-loading-spinner svg {
+  width: 20px;
+  height: 20px;
+  animation: prismify-admin-spin 1s linear infinite;
+}
+
+@keyframes prismify-admin-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Footer */
+.prismify-admin-login-footer {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.prismify-admin-footer-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prismify-admin-login-wrapper {
+    max-width: 380px;
+  }
+  
+  .prismify-admin-login-card {
+    padding: 32px;
+  }
+  
+  .prismify-admin-login-title {
+    font-size: 1.6rem;
+  }
+  
+  .prismify-admin-input {
+    height: 52px;
+  }
+  
+  .prismify-admin-login-button {
+    height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .prismify-admin-login-wrapper {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  
+  .prismify-admin-login-card {
+    padding: 24px;
+    border-radius: 20px;
+  }
+  
+  .prismify-admin-login-title {
+    font-size: 1.4rem;
+  }
+  
+  .prismify-admin-login-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .prismify-admin-input {
+    height: 48px;
+    font-size: 0.95rem;
+  }
+  
+  .prismify-admin-login-button {
+    height: 48px;
+    font-size: 0.95rem;
+  }
+  
+  .prismify-admin-form-group {
+    margin-bottom: 20px;
+  }
+  
+  .prismify-admin-logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .prismify-admin-logo-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .prismify-admin-error-message,
+  .prismify-admin-success-message {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .prismify-admin-login-card {
+    padding: 20px;
+  }
+  
+  .prismify-admin-login-title {
+    font-size: 1.2rem;
+  }
+  
+  .prismify-admin-input {
+    height: 44px;
+    padding: 0 12px 0 44px;
+  }
+  
+  .prismify-admin-login-button {
+    height: 44px;
+  }
+  
+  .prismify-admin-input-icon {
+    left: 12px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .prismify-admin-password-toggle {
+    right: 12px;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .prismify-admin-error-message,
+  .prismify-admin-success-message {
+    font-size: 0.8rem;
+  }
+}
