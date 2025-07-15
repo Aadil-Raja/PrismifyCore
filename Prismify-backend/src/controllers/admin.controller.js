@@ -4,6 +4,7 @@ import sequelize from '../db/sequelize.js';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
 
+
 export const adminLogin = async (req, res) => {
   const { username, password } = req.body;
 
@@ -33,11 +34,24 @@ export const adminLogin = async (req, res) => {
     );
 
     // 4. Generate token
-    const token = jwt.sign({ adminId: admin.id }, JWT_SECRET, { expiresIn: process.env.ACCESS_TOKEN_EXPIRY || '1d' });
+    const token = jwt.sign(
+      { adminId: admin.id },
+      JWT_SECRET,
+      { expiresIn: process.env.ACCESS_TOKEN_EXPIRY || '1d' }
+    );
 
-    res.json({ message: 'Login successful', token });
+    // 5. Set token in HttpOnly cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false, // only true in (https)
+      sameSite: 'Strict', // or 'Lax' depending on your frontend domain
+      maxAge: 24 * 60 * 60 * 1000 // 1 day
+    });
+
+    res.json({ message: 'Login successful',token });
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ message: 'Server error' });
   }
 };
+
