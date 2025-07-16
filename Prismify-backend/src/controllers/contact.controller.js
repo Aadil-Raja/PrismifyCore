@@ -1,5 +1,21 @@
 import Contact from '../models/contacts.models.js';
+import sequelize from '../db/sequelize.js';
 
+// GET /api/contacts (using raw SQL)
+export const getAllContacts = async (req, res) => {
+  try {
+    const [contacts] = await sequelize.query(
+      'SELECT * FROM contacts ORDER BY createdAt DESC'
+    );
+
+    res.status(200).json(contacts);
+  } catch (error) {
+    console.error('Error fetching contacts:', error);
+    res.status(500).json({ message: 'Failed to fetch contacts' });
+  }
+};
+
+// POST /api/contact (submit contact form)
 export const submitContactForm = async (req, res) => {
   try {
     const { name, email, company, message } = req.body;
@@ -19,5 +35,21 @@ export const submitContactForm = async (req, res) => {
   } catch (err) {
     console.error('Error submitting contact form:', err);
     res.status(500).json({ error: 'Something went wrong. Please try again later.' });
+  }
+};
+
+export const deleteContact = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Using raw SQL
+    await sequelize.query('DELETE FROM contacts WHERE id = ?', {
+      replacements: [id],
+    });
+
+    res.status(200).json({ message: 'Contact deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting contact:', error);
+    res.status(500).json({ message: 'Failed to delete contact' });
   }
 };

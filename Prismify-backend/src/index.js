@@ -8,6 +8,7 @@ import sequelize from './db/sequelize.js';
 
 // Import your model so Sequelize registers it
 import './models/contacts.models.js';
+import './models/admin.models.js'
 
 const PORT = process.env.PORT || 5000;
 
