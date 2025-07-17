@@ -1,27 +1,50 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ContactFormResponses.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const ContactFormResponses = () => {
   const [responses, setResponses] = useState([]);
   const [expandedRow, setExpandedRow] = useState(null);
   const [loading, setLoading] = useState(true);
   const titleRef = useRef(null);
+  const navigate = useNavigate();
 
   // Fetch data from API
   useEffect(() => {
     const fetchResponses = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/contact/get-all-contacts`,{ withCredentials: true });
+
+        const token = localStorage.getItem('authToken'); // get from localStorage
+
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/contact/get-all-contacts`,
+          {
+            withCredentials: true, // allow cookies to be sent
+            headers: {
+              Authorization: `Bearer ${token}` // pass token from localStorage
+            }
+          }
+        );
+
         setResponses(response.data);
         console.log('Fetched responses:', response.data);
       } catch (error) {
         console.error('Error fetching responses:', error);
+        if (
+        error.response &&
+        (error.response.status === 401 || error.response.status === 403)
+      ) {
+        // Unauthorized or Forbidden – redirect to login
+        localStorage.removeItem('authToken'); // clear localStorage
+        navigate('/admin/login');
+      }
       } finally {
         setLoading(false);
       }
     };
+
 
     fetchResponses();
   }, []);
@@ -51,13 +74,30 @@ const ContactFormResponses = () => {
 
   const handleDelete = async (id) => {
   try {
-    await axios.delete(`${import.meta.env.VITE_API_URL}/api/contact/delete-contact/${id}`);
+    const token = localStorage.getItem('authToken');
+
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/contact/delete-contact/${id}`, {
+      withCredentials: true,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
     setResponses(responses.filter(response => response.id !== id));
     if (expandedRow === id) setExpandedRow(null);
   } catch (error) {
     console.error('Error deleting response:', error);
+    if (
+        error.response &&
+        (error.response.status === 401 || error.response.status === 403)
+      ) {
+        // Unauthorized or Forbidden – redirect to login
+        localStorage.removeItem('authToken'); // clear localStorage
+        navigate('/admin/login');
+      }
   }
 };
+
 
 
   const formatDate = (dateString) => {
