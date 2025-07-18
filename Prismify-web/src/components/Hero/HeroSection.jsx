@@ -82,10 +82,7 @@ const HeroSection = ({ scrollToSection }) => {
       <section id="purpose">
        <Purpose />
     </section>
-    <section id="why-choose-us">
-       <WhyChooseUs/>
-    </section>
-
+    
      </div>
    
    
