@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './HeroSection.css';
+import Purpose from '../Purpose/purpose'
+import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 const HeroSection = ({ scrollToSection }) => {
   const [textIndex, setTextIndex] = useState(0);
@@ -77,7 +79,16 @@ const HeroSection = ({ scrollToSection }) => {
           </svg>
         </div>
       </section>
-    </div>
+      <section id="purpose">
+       <Purpose />
+    </section>
+    <section id="why-choose-us">
+       <WhyChooseUs/>
+    </section>
+
+     </div>
+   
+   
   );
 };
 

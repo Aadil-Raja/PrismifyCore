@@ -310,32 +310,33 @@ const FeaturedProjects = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Mobile App',
-      challenge: 'A fashion retailer needed a mobile app to sync with their major e-commerce platforms and provide seamless shopping experience across devices.',
-      solution: 'Built a React Native mobile app with real-time inventory, AI-powered recommendations, and integrated payment gateway using Node.js backend.',
-      impact: 'Increased mobile sales by 150% and improved customer retention by 40% within 3 months of launch.',
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Stripe API']
-    },
-    {
-      id: 2,
-      title: 'Healthcare Management System',
-      challenge: 'A medical clinic struggled with paper-based patient records and appointment scheduling, leading to inefficiencies and errors.',
-      solution: 'Developed a comprehensive web application with patient portal, appointment booking, and automated reminders using React and secure APIs.',
-      impact: 'Reduced administrative overhead by 60% and improved patient satisfaction scores from 3.2 to 4.8 out of 5.',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'JWT Auth']
-    },
-    {
-      id: 3,
-      title: 'AI-Powered Chatbot for Customer Support',
-      challenge: 'A growing SaaS company needed to handle increasing customer inquiries without proportionally scaling their support team.',
-      solution: 'Created an intelligent chatbot with natural language processing, integrated with their existing CRM and knowledge base.',
-      impact: 'Resolved 70% of customer queries automatically, reducing response time from 2 hours to under 2 minutes.',
-      technologies: ['React', 'OpenAI API', 'Node.js', 'WebSockets']
-    },
-  ];
+ const projects = [
+  {
+    id: 1,
+    title: 'MaslaFix – Service Marketplace Platform',
+    challenge: 'People struggled to find reliable, verified professionals for everyday tasks like tutoring or home repairs.',
+    solution: 'Built a full-stack platform that connects clients with service providers through real-time messaging, secure billing, and dynamic dashboards.',
+   
+    technologies: ['React.js', 'Node.js', 'MySQL', 'WebSockets', 'JWT']
+  },
+  {
+    id: 2,
+    title: 'AI Sales Workflow Automation',
+    challenge: 'Sales teams spent excessive time on repetitive follow-ups and manual outreach sequences.',
+    solution: 'Designed an n8n automation flow powered by OpenAI agents for intelligent, context-aware email follow-ups and lead handling.',
+  
+    technologies: ['n8n', 'OpenAI API', 'JavaScript']
+  },
+  {
+    id: 3,
+    title: 'Skiing Analysis via Computer Vision',
+    challenge: 'Analyzing skier posture and motion in real-time for performance feedback and training insights.',
+    solution: 'Developed a CV-based system using pose estimation and motion detection to evaluate and visualize skier movement.',
+    
+    technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy']
+  }
+];
+
 
   return (
     <section className="featured-projects">
@@ -355,7 +356,7 @@ const FeaturedProjects = () => {
               <div key={project.id} className="featured-projects-project-card">
                 <div className="featured-projects-project-header">
                   <h3 className="featured-projects-project-title">{project.title}</h3>
-                  <button className="featured-projects-view-details-btn">
+                  {/* <button className="featured-projects-view-details-btn">
                     View Details
                     <svg
                       width="16"
@@ -379,7 +380,7 @@ const FeaturedProjects = () => {
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </button>
+                  </button> */}
                 </div>
                 
                 <div className="featured-projects-project-sections-row">
@@ -407,17 +408,7 @@ const FeaturedProjects = () => {
                     </div>
                   </div>
 
-                  <div className="featured-projects-project-section">
-                    <div className="featured-projects-section-icon featured-projects-impact-icon">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </div>
-                    <div className="featured-projects-section-content">
-                      <h4 className="featured-projects-section-title featured-projects-impact-title">Impact</h4>
-                      <p className="featured-projects-section-text">{project.impact}</p>
-                    </div>
-                  </div>
+                  
                 </div>
 
                 <div className="featured-projects-project-technologies">
