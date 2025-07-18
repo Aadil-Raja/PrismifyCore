@@ -1,68 +1,186 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.app {
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+
+
+
+
+
+
+
+
+
+/* Sections */
+
+
+
+
+/* Pulse Animation */
+
+
+
+/* About Section */
+
+
+
+
+/* Tech Stack Section */
+
+
+
+/* Footer */
+
+
+
+
+
+
+/* Responsive adjustments */
+
+.app-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0a0a0a;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(138, 43, 226, 0.3);
+  border-top: 3px solid #8a2be2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.section-container {
+  position: relative;
+  padding: 20px;
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 8px 32px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  min-height: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+
+.section-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.3) 50%,
+    transparent 100%
+  );
+}
+
+.section-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.2) 50%,
+    transparent 100%
+  );
+}
+
+
+/* Hero section container - special styling */
+.section-container:first-of-type {
+  margin-top: 0;
+  border-radius: 0 0 24px 24px;
+  background: rgba(139, 92, 246, 0.02);
+  border-top: none;
+}
+
+/* Footer section container - special styling */
+.section-container:last-of-type {
+  margin-bottom: 0;
+  border-radius: 24px 24px 0 0;
+  background: rgba(139, 92, 246, 0.04);
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    margin: 25px 0;
+    border-radius: 16px;
+    padding: 15px;
   }
-  a:hover {
-    color: #747bff;
+  
+  .section-container:first-of-type {
+    border-radius: 0 0 16px 16px;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  .section-container:last-of-type {
+    border-radius: 16px 16px 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-container {
+    margin: 20px 0;
+    border-radius: 12px;
+    padding: 12px;
+  }
+  
+  .section-container:first-of-type {
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .section-container:last-of-type {
+    border-radius: 12px 12px 0 0;
   }
 }
