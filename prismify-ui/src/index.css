@@ -13,7 +13,7 @@ html, body {
   padding: 0;
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   line-height: 1.6;
-  color: #e2e8f0;
+  color: #d1d5db;
   background: #000000;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -45,7 +45,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Main animated gradient background - Dark Purple Theme */
+/* Main animated gradient background - Muted Dark Purple Theme */
 .gradient-bg {
   position: absolute;
   top: 0;
@@ -53,50 +53,50 @@ html, body {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 20% 80%, rgba(88, 28, 135, 0.12) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(109, 40, 217, 0.10) 0%, transparent 60%),
-    radial-gradient(circle at 40% 40%, rgba(126, 34, 206, 0.08) 0%, transparent 60%),
-    radial-gradient(circle at 60% 60%, rgba(147, 51, 234, 0.06) 0%, transparent 60%),
-    linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a0a1a 50%, #0f0a0f 75%, #000000 100%);
+    radial-gradient(circle at 20% 80%, rgba(45, 20, 60, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(55, 25, 70, 0.05) 0%, transparent 60%),
+    radial-gradient(circle at 40% 40%, rgba(35, 18, 52, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 60% 60%, rgba(48, 22, 65, 0.03) 0%, transparent 60%),
+    linear-gradient(135deg, #000000 0%, #050505 25%, #0a0508 50%, #080507 75%, #000000 100%);
   animation: gradientShift 28s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
   0%, 100% {
     background: 
-      radial-gradient(circle at 20% 80%, rgba(88, 28, 135, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 80% 20%, rgba(109, 40, 217, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 40% 40%, rgba(126, 34, 206, 0.08) 0%, transparent 60%),
-      radial-gradient(circle at 60% 60%, rgba(147, 51, 234, 0.06) 0%, transparent 60%),
-      linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #1a0a1a 50%, #0f0a0f 75%, #000000 100%);
+      radial-gradient(circle at 20% 80%, rgba(45, 20, 60, 0.06) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(55, 25, 70, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 40% 40%, rgba(35, 18, 52, 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 60% 60%, rgba(48, 22, 65, 0.03) 0%, transparent 60%),
+      linear-gradient(135deg, #000000 0%, #050505 25%, #0a0508 50%, #080507 75%, #000000 100%);
   }
   25% {
     background: 
-      radial-gradient(circle at 70% 30%, rgba(88, 28, 135, 0.15) 0%, transparent 60%),
-      radial-gradient(circle at 30% 70%, rgba(109, 40, 217, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 60% 20%, rgba(126, 34, 206, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 20% 50%, rgba(147, 51, 234, 0.08) 0%, transparent 60%),
-      linear-gradient(135deg, #000000 0%, #1a0a1a 25%, #0f0a0f 50%, #1a0a1a 75%, #000000 100%);
+      radial-gradient(circle at 70% 30%, rgba(45, 20, 60, 0.08) 0%, transparent 60%),
+      radial-gradient(circle at 30% 70%, rgba(55, 25, 70, 0.06) 0%, transparent 60%),
+      radial-gradient(circle at 60% 20%, rgba(35, 18, 52, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 20% 50%, rgba(48, 22, 65, 0.04) 0%, transparent 60%),
+      linear-gradient(135deg, #000000 0%, #0a0508 25%, #080507 50%, #0a0508 75%, #000000 100%);
   }
   50% {
     background: 
-      radial-gradient(circle at 40% 60%, rgba(88, 28, 135, 0.10) 0%, transparent 60%),
-      radial-gradient(circle at 90% 40%, rgba(109, 40, 217, 0.08) 0%, transparent 60%),
-      radial-gradient(circle at 10% 80%, rgba(126, 34, 206, 0.12) 0%, transparent 60%),
-      radial-gradient(circle at 80% 10%, rgba(147, 51, 234, 0.10) 0%, transparent 60%),
-      linear-gradient(135deg, #000000 0%, #0f0a0f 25%, #1a0a1a 50%, #0f0a0f 75%, #000000 100%);
+      radial-gradient(circle at 40% 60%, rgba(45, 20, 60, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 90% 40%, rgba(55, 25, 70, 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 10% 80%, rgba(35, 18, 52, 0.06) 0%, transparent 60%),
+      radial-gradient(circle at 80% 10%, rgba(48, 22, 65, 0.05) 0%, transparent 60%),
+      linear-gradient(135deg, #000000 0%, #080507 25%, #0a0508 50%, #080507 75%, #000000 100%);
   }
   75% {
     background: 
-      radial-gradient(circle at 10% 20%, rgba(88, 28, 135, 0.14) 0%, transparent 60%),
-      radial-gradient(circle at 60% 90%, rgba(109, 40, 217, 0.11) 0%, transparent 60%),
-      radial-gradient(circle at 80% 60%, rgba(126, 34, 206, 0.07) 0%, transparent 60%),
-      radial-gradient(circle at 30% 30%, rgba(147, 51, 234, 0.09) 0%, transparent 60%),
-      linear-gradient(135deg, #000000 0%, #1a0a1a 25%, #0f0a0f 50%, #1a0a1a 75%, #000000 100%);
+      radial-gradient(circle at 10% 20%, rgba(45, 20, 60, 0.07) 0%, transparent 60%),
+      radial-gradient(circle at 60% 90%, rgba(55, 25, 70, 0.06) 0%, transparent 60%),
+      radial-gradient(circle at 80% 60%, rgba(35, 18, 52, 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 30% 30%, rgba(48, 22, 65, 0.05) 0%, transparent 60%),
+      linear-gradient(135deg, #000000 0%, #0a0508 25%, #080507 50%, #0a0508 75%, #000000 100%);
   }
 }
 
-/* Grid overlay for subtle texture - Purple tinted */
+/* Grid overlay for subtle texture - Muted Purple tinted */
 .grid-overlay {
   position: absolute;
   top: 0;
@@ -104,11 +104,11 @@ html, body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(126, 34, 206, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(126, 34, 206, 0.02) 1px, transparent 1px);
+    linear-gradient(rgba(60, 30, 80, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 30, 80, 0.015) 1px, transparent 1px);
   background-size: 50px 50px;
   animation: gridMove 35s linear infinite;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
 @keyframes gridMove {
@@ -120,20 +120,20 @@ html, body {
   }
 }
 
-/* ===== AMBIENT LIGHTING & ORBS - Purple Theme ===== */
+/* ===== AMBIENT LIGHTING & ORBS - Muted Purple Theme ===== */
 .ambient-orb {
   position: absolute;
   border-radius: 50%;
   filter: blur(50px);
   animation: orbFloat 18s ease-in-out infinite;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .orb-1 {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(88, 28, 135, 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 20, 60, 0.05) 0%, transparent 70%);
   top: 12%;
   left: 8%;
   animation-delay: 0s;
@@ -142,7 +142,7 @@ html, body {
 .orb-2 {
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(109, 40, 217, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(55, 25, 70, 0.04) 0%, transparent 70%);
   top: 50%;
   right: 8%;
   animation-delay: -6s;
@@ -151,7 +151,7 @@ html, body {
 .orb-3 {
   width: 280px;
   height: 280px;
-  background: radial-gradient(circle, rgba(126, 34, 206, 0.07) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(35, 18, 52, 0.045) 0%, transparent 70%);
   bottom: 20%;
   left: 32%;
   animation-delay: -12s;
@@ -160,7 +160,7 @@ html, body {
 .orb-4 {
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(147, 51, 234, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(48, 22, 65, 0.035) 0%, transparent 70%);
   top: 75%;
   right: 35%;
   animation-delay: -3s;
@@ -181,19 +181,19 @@ html, body {
   }
 }
 
-/* ===== FLOATING PARTICLES - Purple Variants ===== */
+/* ===== FLOATING PARTICLES - Muted Purple Variants ===== */
 .particle {
   position: absolute;
   background: linear-gradient(45deg, 
-    rgba(126, 34, 206, 0.6), 
-    rgba(147, 51, 234, 0.5), 
-    rgba(168, 85, 247, 0.4));
+    rgba(60, 30, 80, 0.4), 
+    rgba(70, 35, 90, 0.35), 
+    rgba(80, 40, 100, 0.25));
   border-radius: 50%;
   animation: particleFloat 28s linear infinite;
   pointer-events: none;
   box-shadow: 
-    0 0 10px rgba(126, 34, 206, 0.3),
-    0 0 20px rgba(147, 51, 234, 0.15);
+    0 0 10px rgba(60, 30, 80, 0.2),
+    0 0 20px rgba(70, 35, 90, 0.1);
 }
 
 @keyframes particleFloat {
@@ -202,11 +202,11 @@ html, body {
     opacity: 0;
   }
   8% {
-    opacity: 0.7;
+    opacity: 0.5;
     transform: translateY(92vh) rotate(36deg) scale(1);
   }
   92% {
-    opacity: 0.7;
+    opacity: 0.5;
     transform: translateY(-8vh) rotate(324deg) scale(1);
   }
   100% {
@@ -215,7 +215,7 @@ html, body {
   }
 }
 
-/* ===== LOADING COMPONENTS - Purple Theme ===== */
+/* ===== LOADING COMPONENTS - Muted Purple Theme ===== */
 .app-loader {
   display: flex;
   justify-content: center;
@@ -234,18 +234,18 @@ html, body {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 50% 50%, rgba(126, 34, 206, 0.1) 0%, transparent 60%),
-    radial-gradient(circle at 30% 70%, rgba(147, 51, 234, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 50% 50%, rgba(60, 30, 80, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 30% 70%, rgba(70, 35, 90, 0.05) 0%, transparent 50%);
   animation: loaderPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes loaderPulse {
   0%, 100% { 
-    opacity: 0.3;
+    opacity: 0.25;
     transform: scale(1);
   }
   50% { 
-    opacity: 0.7;
+    opacity: 0.5;
     transform: scale(1.02);
   }
 }
@@ -253,16 +253,16 @@ html, body {
 .loader-spinner {
   width: 45px;
   height: 45px;
-  border: 3px solid rgba(126, 34, 206, 0.2);
-  border-top: 3px solid rgba(126, 34, 206, 0.8);
-  border-right: 3px solid rgba(147, 51, 234, 0.6);
+  border: 3px solid rgba(60, 30, 80, 0.15);
+  border-top: 3px solid rgba(60, 30, 80, 0.6);
+  border-right: 3px solid rgba(70, 35, 90, 0.45);
   border-radius: 50%;
   animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
   position: relative;
   z-index: 2;
   box-shadow: 
-    0 0 20px rgba(126, 34, 206, 0.4),
-    0 0 40px rgba(147, 51, 234, 0.2);
+    0 0 20px rgba(60, 30, 80, 0.25),
+    0 0 40px rgba(70, 35, 90, 0.15);
 }
 
 @keyframes spin {
@@ -270,19 +270,19 @@ html, body {
   100% { transform: rotate(360deg); }
 }
 
-/* ===== SECTION CONTAINERS - Dark Purple Glass ===== */
+/* ===== SECTION CONTAINERS - Dark Muted Glass ===== */
 .section-container {
   position: relative;
   padding: 22px;
-  background: rgba(20, 10, 30, 0.35);
-  border: 1px solid rgba(126, 34, 206, 0.15);
+  background: rgba(15, 8, 20, 0.4);
+  border: 1px solid rgba(60, 30, 80, 0.12);
   border-radius: 20px;
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 2px 8px rgba(126, 34, 206, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(60, 30, 80, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
   overflow: hidden;
   min-height: auto;
   width: 100%;
@@ -291,13 +291,13 @@ html, body {
 }
 
 .section-container:hover {
-  border-color: rgba(126, 34, 206, 0.25);
+  border-color: rgba(60, 30, 80, 0.18);
   transform: translateY(-1px);
   box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.5),
-    0 4px 12px rgba(126, 34, 206, 0.15),
-    0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    0 12px 40px rgba(0, 0, 0, 0.7),
+    0 4px 12px rgba(60, 30, 80, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .section-container::before {
@@ -309,9 +309,9 @@ html, body {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(126, 34, 206, 0.4) 25%,
-    rgba(147, 51, 234, 0.5) 50%,
-    rgba(126, 34, 206, 0.4) 75%,
+    rgba(60, 30, 80, 0.25) 25%,
+    rgba(70, 35, 90, 0.3) 50%,
+    rgba(60, 30, 80, 0.25) 75%,
     transparent 100%
   );
 }
@@ -325,8 +325,8 @@ html, body {
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(168, 85, 247, 0.3) 30%,
-    rgba(126, 34, 206, 0.4) 70%,
+    rgba(80, 40, 100, 0.2) 30%,
+    rgba(60, 30, 80, 0.25) 70%,
     transparent 100%
   );
 }
@@ -335,14 +335,14 @@ html, body {
 .section-container:first-of-type {
   margin-top: 0;
   border-radius: 0 0 20px 20px;
-  background: rgba(20, 10, 30, 0.25);
+  background: rgba(15, 8, 20, 0.3);
   border-top: none;
 }
 
 .section-container:last-of-type {
   margin-bottom: 0;
   border-radius: 20px 20px 0 0;
-  background: rgba(20, 10, 30, 0.4);
+  background: rgba(15, 8, 20, 0.5);
   border-bottom: none;
 }
 
@@ -358,7 +358,7 @@ html, body {
   
   .ambient-orb {
     filter: blur(35px);
-    opacity: 0.4;
+    opacity: 0.25;
   }
   
   .orb-1, .orb-2, .orb-3, .orb-4 {
@@ -387,7 +387,7 @@ html, body {
   
   .ambient-orb {
     filter: blur(25px);
-    opacity: 0.3;
+    opacity: 0.2;
   }
   
   .orb-1, .orb-2, .orb-3, .orb-4 {
@@ -420,7 +420,7 @@ html, body {
   }
   
   .particle-background {
-    opacity: 0.2;
+    opacity: 0.15;
   }
   
   .section-container {
@@ -444,18 +444,18 @@ html, body {
 @media (prefers-color-scheme: dark) {
   html, body {
     background: #000000;
-    color: #e2e8f0;
+    color: #d1d5db;
   }
 }
 
 /* High contrast support */
 @media (prefers-contrast: high) {
   .section-container {
-    border-color: rgba(40, 19, 59, 0.6);
-    background: rgba(20, 10, 30, 0.7);
+    border-color: rgba(30, 15, 40, 0.5);
+    background: rgba(15, 8, 20, 0.7);
   }
   
   .gradient-bg {
-    opacity: 0.8;
+    opacity: 0.6;
   }
 }

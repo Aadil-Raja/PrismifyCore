@@ -7,28 +7,7 @@ import './Header.css';
 const Header = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
 
-//   const handleNavClick = (section) => {
-//     // Map your "section" strings to actual routes
-//     let path = '/';
-//     switch (section) {
-//       case 'services':
-//         path = '/services';
-//         break;
-//       case 'tech-stack':
-//         path = '/projects';
-//         break;
-//       case 'contact':
-//         path = '/contact';
-//         break;
-//       default:
-//         path = '/';
-//     }
-//     navigate(path);
-//     // Close menu on mobile
-//     if (window.innerWidth <= 768) {
-//       setIsMenuOpen(false);
-//     }
-//   };
+
 
   return (
     <header className="main-header">

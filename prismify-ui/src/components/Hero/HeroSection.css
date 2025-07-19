@@ -7,6 +7,13 @@
   align-items: center;
   position: relative;
   padding: 120px 0 80px;
+  background: transparent; /* Ensure no background color blocks particles */
+  z-index: 1; /* Keep it above particles but allow particles to show through */
+}
+
+.hero-banner .container {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-main-content {

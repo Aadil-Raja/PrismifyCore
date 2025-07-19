@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './HeroSection.css';
 import Purpose from '../Purpose/Purpose'
-// import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
+import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
 
 const HeroSection = ({ scrollToSection }) => {
   const [textIndex, setTextIndex] = useState(0);
@@ -25,7 +25,7 @@ const HeroSection = ({ scrollToSection }) => {
   }, []);
 
   return (
-    <div className="main-section-container">
+    <>
       <section id="home" className="hero-banner">
         <div className="container">
           <div className={`hero-main-content ${isVisible ? 'content-visible' : ''}`}>
@@ -49,9 +49,6 @@ const HeroSection = ({ scrollToSection }) => {
               </div>
             </div>
             <div className="hero-visual-section">
-              <div className="animated-ring ring-outer"></div>
-              <div className="animated-ring ring-middle"></div>
-              <div className="animated-ring ring-inner"></div>
               <div className="lottie-animation-wrapper">
                 <DotLottieReact
                   // src="https://lottie.host/841549d0-4c72-4abb-878b-83d430904ba6/AjyEbk1bx2.lottie"
@@ -75,9 +72,11 @@ const HeroSection = ({ scrollToSection }) => {
       </section>
       <section id="purpose">
        <Purpose />
-    </section>
-   
-     </div>
+      </section>
+      <section id="why-choose-us">
+       <WhyChooseUs />
+      </section>
+    </>
    
    
   );
