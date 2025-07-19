@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './whyChooseUs.css';
-
+import { Zap, Award, Clock, Package, DollarSign } from "lucide-react";
+import { Users, ShieldCheck, Lightbulb } from "lucide-react";
 const WhyChooseUs = () => {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -44,102 +45,57 @@ const WhyChooseUs = () => {
     return () => clearTimeout(timer);
   }, [currentIndex, fullText]);
 
-  const features = [
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      ),
-      title: "Modern React & Node.js Technology Stack",
-      description: "Cutting-edge development using the latest React and Node.js frameworks for optimal performance."
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-      ),
-      title: "Agile Development Methodology",
-      description: "Fast, flexible development process with continuous integration and regular client feedback."
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 6v6l4 2"/>
-        </svg>
-      ),
-      title: "24/7 Support & Maintenance",
-      description: "Round-the-clock technical support and proactive maintenance to keep your systems running smoothly."
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-          <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
-        </svg>
-      ),
-      title: "Scalable & Future-Proof Solutions",
-      description: "Architecture designed to grow with your business and adapt to future technological changes."
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-        </svg>
-      ),
-      title: "Competitive Pricing & Flexible Plans",
-      description: "Transparent pricing models with flexible payment options tailored to your budget and requirements."
-    }
-  ];
 
-  const benefits = [
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-        </svg>
-      ),
-      title: "Expert Team",
-      description: "Experienced developers specializing in React and Node.js"
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M9 12l2 2 4-4"/>
-          <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-          <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
-          <path d="M13 12h3l4-4"/>
-          <path d="M8 12H5l-4-4"/>
-        </svg>
-      ),
-      title: "Quality Assured",
-      description: "Rigorous testing and quality control processes"
-    },
-    {
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M9 11H1v12h8"/>
-          <path d="M20 12h-8l4-4h4"/>
-          <path d="M12 3H4v8h8"/>
-          <path d="M20 3h-8v8h8"/>
-        </svg>
-      ),
-      title: "Innovation First",
-      description: "Cutting-edge solutions using the latest technologies"
-    }
-  ];
+const features = [
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Modern React & Node.js Technology Stack",
+    description: "Cutting-edge development using the latest React and Node.js frameworks for optimal performance."
+  },
+  {
+    icon: <Award className="w-6 h-6" />,
+    title: "Agile Development Methodology",
+    description: "Fast, flexible development process with continuous integration and regular client feedback."
+  },
+  {
+    icon: <Clock className="w-6 h-6" />,
+    title: "24/7 Support & Maintenance",
+    description: "Round-the-clock technical support and proactive maintenance to keep your systems running smoothly."
+  },
+  {
+    icon: <Package className="w-6 h-6" />,
+    title: "Scalable & Future-Proof Solutions",
+    description: "Architecture designed to grow with your business and adapt to future technological changes."
+  },
+  {
+    icon: <DollarSign className="w-6 h-6" />,
+    title: "Competitive Pricing & Flexible Plans",
+    description: "Transparent pricing models with flexible payment options tailored to your budget and requirements."
+  }
+];
 
+const benefits = [
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "Expert Team",
+    description: "Experienced developers specializing in React and Node.js"
+  },
+  {
+    icon: <ShieldCheck className="w-6 h-6" />,
+    title: "Quality Assured",
+    description: "Rigorous testing and quality control processes"
+  },
+  {
+    icon: <Lightbulb className="w-6 h-6" />,
+    title: "Innovation First",
+    description: "Cutting-edge solutions using the latest technologies"
+  }
+];
   return (
-    <section id="why-choose-us" className="why-choose-us">
-      <div className="why-choose-container">
-        <div >
+    <div className="app">
+      {/* Main content using container from index.css */}
+      <div className="container">
+        <section id="why-choose-us" className="why-choose-main-wrapper">
           <div className="why-choose-header" ref={titleRef}>
             <h2 className="why-choose-title">
               Why Choose Prismify Core?
@@ -163,7 +119,6 @@ const WhyChooseUs = () => {
             <div className="why-choose-features-list">
               {features.map((feature, index) => (
                 <div key={index} className="why-choose-feature-item" style={{animationDelay: `${index * 0.1}s`}}>
-                  <div className="why-choose-feature-line"></div>
                   <div className="why-choose-feature-content">
                     <div className="why-choose-feature-icon">
                       {feature.icon}
@@ -190,13 +145,15 @@ const WhyChooseUs = () => {
                     <h3 className="why-choose-benefit-title">{benefit.title}</h3>
                     <p className="why-choose-benefit-description">{benefit.description}</p>
                   </div>
+                  <div className="why-choose-benefit-border-effect"></div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
       </div>
-      
+
+      {/* Background Effects */}
       <div className="why-choose-background-effects">
         <div className="why-choose-particle why-choose-particle-1"></div>
         <div className="why-choose-particle why-choose-particle-2"></div>
@@ -204,10 +161,8 @@ const WhyChooseUs = () => {
         <div className="why-choose-particle why-choose-particle-4"></div>
         <div className="why-choose-particle why-choose-particle-5"></div>
         <div className="why-choose-particle why-choose-particle-6"></div>
-        <div className="why-choose-particle why-choose-particle-7"></div>
-        <div className="why-choose-particle why-choose-particle-8"></div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -22,9 +22,11 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
         </div>
         <nav className={`primary-nav ${isMenuOpen ? 'primary-nav-open' : ''}`}>
           <button onClick={() => handleNavClick('/')}>Home</button>
-          <button onClick={() => handleNavClick('service')}>Services</button>
+          <button onClick={() => handleNavClick('services')}>Services</button>
           <button onClick={() => handleNavClick('techstack')}>Tech Stack</button>
+          <button onClick={() => handleNavClick('/projects')}>Projects</button>
           <button onClick={() => handleNavClick('/contact')}>Contact</button>
+          
         </nav>
         <button
           className={`hamburger-menu ${isMenuOpen ? 'hamburger-active' : ''}`}

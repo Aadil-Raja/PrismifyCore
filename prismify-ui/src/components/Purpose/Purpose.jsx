@@ -71,6 +71,7 @@ const Purpose = () => {
                 scalable, efficient, and user-centric applications.
               </p>
             </div>
+            
           </div>
         </div>
       </div>
