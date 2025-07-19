@@ -8,20 +8,23 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
 
 
-
+  // ✅ Define navigation handler
+  const handleNavClick = (path) => {
+    navigate(path);
+    setIsMenuOpen(false); // optional: auto-close menu on mobile
+  };
   return (
     <header className="main-header">
       <div className="header-container">
         <div className="brand-logo" onClick={() => handleNavClick('home')}>
-          {/* Uncomment if you want the image */}
-          {/* <img src={logo} alt="PrismifyCore Logo" className="brand-logo-image" /> */}
+
           <span className="brand-logo-text">PrismifyCore</span>
         </div>
         <nav className={`primary-nav ${isMenuOpen ? 'primary-nav-open' : ''}`}>
           <button onClick={() => handleNavClick('/')}>Home</button>
-          <button onClick={() => handleNavClick('/')}>Services</button>
-          <button onClick={() => handleNavClick('/')}>Tech Stack</button>
-          <button onClick={() => handleNavClick('/')}>Contact</button>
+          <button onClick={() => handleNavClick('service')}>Services</button>
+          <button onClick={() => handleNavClick('techstack')}>Tech Stack</button>
+          <button onClick={() => handleNavClick('/contact')}>Contact</button>
         </nav>
         <button
           className={`hamburger-menu ${isMenuOpen ? 'hamburger-active' : ''}`}

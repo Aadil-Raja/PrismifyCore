@@ -10,7 +10,9 @@ import Home from './components/Hero/HeroSection.jsx'
 // import Login from './pages/Login/Login.jsx';
 // import ProtectedRoute from './ProtectedRoute';
 // import { AuthProvider } from './context/AuthContext.jsx';
-
+import Services from './components/Services/Service.jsx'
+import TechStack from './components/TechStack/TechStack.jsx';
+import Contact from './components/Contact/Contact.jsx';
 
 function App() {
   return (
@@ -19,8 +21,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+             <Route path="service" element={<Services />} />
+              <Route path="techstack" element = {<TechStack/>} />
+              <Route path="contact" element = {<Contact/>} />
             {/* <Route path="about" element={<About />} />
-            <Route path="services" element={<Services />} />
+           
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} /> */}
           </Route>
