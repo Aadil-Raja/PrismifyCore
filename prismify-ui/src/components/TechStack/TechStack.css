@@ -1,4 +1,3 @@
-
 /* ===== TECH STACK PAGE SPECIFIC STYLES ===== */
 /* Using purple color palette matching Services component */
 
@@ -201,9 +200,8 @@
 }
 
 .techstack-item-icon {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+  width: 70px;
+  height: 70px;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -216,13 +214,6 @@
 .techstack-item-card:hover .techstack-item-icon {
   transform: scale(1.1) rotate(-3deg);
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
-}
-
-.techstack-item-icon svg {
-  width: 28px;
-  height: 28px;
-  color: #ffffff;
-  stroke-width: 2;
 }
 
 .techstack-item-glow {
@@ -457,13 +448,8 @@
   }
   
   .techstack-item-icon {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .techstack-item-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 60px;
+    height: 60px;
   }
   
   .techstack-item-name {
@@ -509,13 +495,8 @@
   }
   
   .techstack-item-icon {
-    width: 45px;
-    height: 45px;
-  }
-  
-  .techstack-item-icon svg {
-    width: 22px;
-    height: 22px;
+    width: 55px;
+    height: 55px;
   }
   
   .techstack-item-name {

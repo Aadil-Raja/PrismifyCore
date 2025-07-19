@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './TechStack.css';
+import { FaReact, FaNodeJs, FaPython, FaDocker } from 'react-icons/fa';
+import { SiDjango, SiFastapi, SiKubernetes } from 'react-icons/si';
 
 const TechStack = () => {
   const headerRef = useRef(null);
@@ -30,14 +32,7 @@ const TechStack = () => {
       id: 1,
       tech: "React",
       description: "Modern component-based architecture for building dynamic user interfaces",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="1"/>
-          <ellipse cx="12" cy="12" rx="8" ry="3"/>
-          <ellipse cx="12" cy="12" rx="8" ry="3" transform="rotate(60 12 12)"/>
-          <ellipse cx="12" cy="12" rx="8" ry="3" transform="rotate(120 12 12)"/>
-        </svg>
-      ),
+      icon: <FaReact size={40} color="#61DAFB" />,
       color: "#8b5cf6",
       category: "Frontend"
     },
@@ -45,13 +40,7 @@ const TechStack = () => {
       id: 2,
       tech: "Node.js",
       description: "Scalable server-side JavaScript runtime for building robust backend systems",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="m2 17 10 5 10-5"/>
-          <path d="m2 12 10 5 10-5"/>
-        </svg>
-      ),
+      icon: <FaNodeJs size={40} color="#68A063" />,
       color: "#a855f7",
       category: "Backend"
     },
@@ -59,13 +48,7 @@ const TechStack = () => {
       id: 3,
       tech: "Python",
       description: "Versatile language used for scripting, data analysis, and machine learning",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-          <path d="M8 12h8"/>
-          <path d="M12 8v8"/>
-        </svg>
-      ),
+      icon: <FaPython size={40} color="#3776AB" />,
       color: "#9333ea",
       category: "Backend"
     },
@@ -73,14 +56,7 @@ const TechStack = () => {
       id: 4,
       tech: "Django",
       description: "High-level Python web framework for rapid development and clean design",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <path d="M9 8h6v8H9z"/>
-          <path d="M12 3v5"/>
-          <path d="M12 16v5"/>
-        </svg>
-      ),
+      icon: <SiDjango size={40} color="#092E20" />,
       color: "#7c3aed",
       category: "Framework"
     },
@@ -88,11 +64,7 @@ const TechStack = () => {
       id: 5,
       tech: "FastAPI",
       description: "High-performance Python web framework for APIs with async support",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-      ),
+      icon: <SiFastapi size={40} color="#009688" />,
       color: "#8b5cf6",
       category: "Framework"
     },
@@ -100,13 +72,7 @@ const TechStack = () => {
       id: 6,
       tech: "Docker",
       description: "Container platform that simplifies deployment and scalability",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <rect x="5" y="6" width="14" height="10" rx="1"/>
-          <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
-          <circle cx="12" cy="11" r="2"/>
-        </svg>
-      ),
+      icon: <FaDocker size={40} color="#2496ED" />,
       color: "#a855f7",
       category: "DevOps"
     },
@@ -114,11 +80,7 @@ const TechStack = () => {
       id: 7,
       tech: "Kubernetes",
       description: "Open-source system for automating deployment, scaling, and management of apps",
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7l2-7z"/>
-        </svg>
-      ),
+      icon: <SiKubernetes size={40} color="#326CE5" />,
       color: "#9333ea",
       category: "DevOps"
     }
@@ -128,10 +90,8 @@ const TechStack = () => {
 
   return (
     <div className="app">
-      {/* Main content using container from index.css */}
       <div className="container">
         <div className="techstack-main-wrapper">
-          {/* Header section */}
           <div className="techstack-header-section" ref={headerRef}>
             <div className="techstack-header-content">
               <h1 className="techstack-main-title">Tech Stack</h1>
@@ -141,7 +101,6 @@ const TechStack = () => {
             </div>
           </div>
 
-          {/* Tech Stack section */}
           <div className="techstack-content-section" ref={stackRef}>
             {categories.map((category, categoryIndex) => (
               <div key={category} className="techstack-category-section">
@@ -189,7 +148,6 @@ const TechStack = () => {
         </div>
       </div>
 
-      {/* Background Effects */}
       <div className="techstack-background-effects">
         <div className="techstack-particle techstack-particle-1"></div>
         <div className="techstack-particle techstack-particle-2"></div>
