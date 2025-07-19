@@ -60,6 +60,7 @@ const HeroSection = ({ scrollToSection }) => {
                   autoplay
                 />
               </div>
+              
               <div className="floating-square-element"></div>
               <div className="floating-circle-element"></div>
             </div>
