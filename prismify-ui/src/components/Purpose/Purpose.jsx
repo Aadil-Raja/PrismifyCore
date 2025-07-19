@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './purpose.css';
+import './Purpose.css';
 
 const Purpose = () => {
   const visionRef = useRef(null);
