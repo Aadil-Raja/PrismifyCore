@@ -1,212 +1,456 @@
-/* Purpose Section Styles */
-.purpose-main-section {
-  padding: 100px 0;
+/* Purpose Section - Custom Gradient Background Effect */
+
+/* Main Section with Dynamic Background */
+.purpose-section-wrapper {
+  padding: 80px 0 120px 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.purpose-content {
+/* Gradient Backdrop - Animated on Scroll */
+.purpose-gradient-backdrop {
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-out;
+  background: 
+    radial-gradient(ellipse 60% 40% at 30% 70%, rgba(147, 51, 234, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 70% 30%, rgba(168, 85, 247, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 50% at 50% 90%, rgba(126, 34, 206, 0.18) 0%, transparent 50%),
+    linear-gradient(135deg, 
+      rgba(88, 28, 135, 0.08) 0%, 
+      rgba(147, 51, 234, 0.06) 25%, 
+      rgba(168, 85, 247, 0.04) 50%,
+      rgba(126, 34, 206, 0.08) 75%,
+      rgba(88, 28, 135, 0.06) 100%
+    );
+  transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(0.8) rotate(-5deg);
+  z-index: 0;
 }
 
-.purpose-content.visible {
+/* Ambient Glow Effect */
+.purpose-ambient-glow {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  opacity: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(147, 51, 234, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(168, 85, 247, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(126, 34, 206, 0.12) 0%, transparent 45%);
+  filter: blur(40px);
+  transition: all 2s ease-out;
+  transform: scale(0.5);
+  z-index: 0;
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { 
+    transform: scale(0.5); 
+    opacity: 0.3;
+  }
+  50% { 
+    transform: scale(0.7); 
+    opacity: 0.6;
+  }
+}
+
+/* Active State - Triggered on Scroll */
+.purpose-section-wrapper.purpose-section-active .purpose-gradient-backdrop {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.purpose-section-wrapper.purpose-section-active .purpose-ambient-glow {
+  opacity: 0.5;
+  transform: scale(0.6);
+}
+
+/* Content Container */
+.purpose-main-content {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 2;
+}
+
+.purpose-main-content.purpose-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.purpose-header {
+/* Header Section */
+.purpose-header-zone {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
-.purpose-header h2 {
-  font-size: 2.5rem;
+.purpose-main-title {
+  font-size: 2.75rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #f3f3f3 0%, #c512f1 100%);
+  background: linear-gradient(135deg, 
+    #ffffff 10%, 
+    #e0e7ff 30%,
+    #c084fc 60%,
+    #a855f7 80%,
+    #9333ea 95%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin: 0 0 20px 0;
-  letter-spacing: -0.02em;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
   line-height: 1.1;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  position: relative;
 }
 
-.purpose-subtitle {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: rgba(139, 92, 246, 0.9);
-  font-style: italic;
-  letter-spacing: 0.5px;
+.purpose-main-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(168, 85, 247, 0.6) 25%, 
+    rgba(147, 51, 234, 0.8) 50%,
+    rgba(168, 85, 247, 0.6) 75%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.purpose-section-wrapper.purpose-section-active .purpose-main-title::after {
+  opacity: 1;
+  animation: titleUnderline 2s ease-in-out infinite;
+}
+
+@keyframes titleUnderline {
+  0%, 100% { 
+    transform: translateX(-50%) scaleX(1); 
+  }
+  50% { 
+    transform: translateX(-50%) scaleX(1.2); 
+  }
+}
+
+.purpose-subtitle-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgba(196, 181, 253, 0.9);
   margin: 0;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 2;
 }
 
-.purpose-cards {
+/* Cards Grid */
+.purpose-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 28px;
   margin-top: 40px;
+  position: relative;
+  z-index: 2;
 }
 
-.purpose-card {
-  background: rgba(139, 92, 246, 0.05);
-  border: 1px solid rgba(139, 92, 246, 0.15);
-  border-radius: 20px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+/* Individual Card with Enhanced Styling */
+.purpose-single-card {
+  background: 
+    linear-gradient(145deg, 
+      rgba(30, 15, 45, 0.6) 0%, 
+      rgba(20, 10, 35, 0.7) 50%,
+      rgba(25, 12, 40, 0.8) 100%
+    );
+  border: 1px solid rgba(168, 85, 247, 0.15);
+  border-radius: 18px;
+  padding: 32px 26px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  backdrop-filter: blur(12px);
   overflow: hidden;
 }
 
-.purpose-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-}
-
-.purpose-card::before {
+.purpose-single-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+  background: linear-gradient(145deg,
+    rgba(147, 51, 234, 0.05) 0%,
+    rgba(168, 85, 247, 0.03) 30%,
+    rgba(126, 34, 206, 0.08) 70%,
+    rgba(147, 51, 234, 0.04) 100%
+  );
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 20px;
-  pointer-events: none;
+  transition: opacity 0.4s ease;
+  border-radius: 18px;
 }
 
-.purpose-card:hover::before {
+.purpose-single-card:hover::before {
   opacity: 1;
 }
 
-.card-icon {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #8b5cf6, #a855f7);
+.purpose-single-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 4px 20px rgba(147, 51, 234, 0.2),
+    0 0 0 1px rgba(168, 85, 247, 0.1);
+}
+
+/* Card Icon */
+.purpose-card-icon-box {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, 
+    #8b5cf6 0%, 
+    #a855f7 50%,
+    #9333ea 100%
+  );
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  box-shadow: 
+    0 4px 15px rgba(147, 51, 234, 0.3),
+    0 0 20px rgba(168, 85, 247, 0.2);
 }
 
-.purpose-card:hover .card-icon {
-  transform: scale(1.05);
+.purpose-single-card:hover .purpose-card-icon-box {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 
+    0 6px 25px rgba(147, 51, 234, 0.4),
+    0 0 30px rgba(168, 85, 247, 0.3);
 }
 
-.card-icon svg {
-  width: 24px;
-  height: 24px;
+.purpose-card-icon-box svg {
+  width: 22px;
+  height: 22px;
   color: #ffffff;
-  stroke-width: 2;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
 }
 
-.purpose-card h3 {
-  font-size: 1.5rem;
+/* Card Text */
+.purpose-card-title {
+  font-size: 1.45rem;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 15px 0;
-  line-height: 1.2;
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
 }
 
-.purpose-card p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
+.purpose-card-description {
+  font-size: 1.02rem;
+  color: rgba(226, 232, 240, 0.85);
   line-height: 1.6;
   margin: 0;
   font-weight: 300;
+  position: relative;
+  z-index: 2;
 }
 
-/* Staggered animation for cards */
-.purpose-content.visible .vision-card {
-  animation: slideInUp 0.8s ease-out 0.2s both;
+/* Enhanced entrance animations */
+.purpose-main-content.purpose-visible .purpose-vision-card {
+  animation: purposeFadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
 }
 
-.purpose-content.visible .mission-card {
-  animation: slideInUp 0.8s ease-out 0.4s both;
+.purpose-main-content.purpose-visible .purpose-mission-card {
+  animation: purposeFadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
 }
 
-@keyframes slideInUp {
+@keyframes purposeFadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Background Pattern Effect */
+.purpose-section-wrapper.purpose-section-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 25% 75%, rgba(147, 51, 234, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(168, 85, 247, 0.02) 0%, transparent 50%);
+  animation: patternShift 12s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes patternShift {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05) rotate(2deg);
   }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .purpose-main-section {
-    padding: 80px 0;
+  .purpose-section-wrapper {
+    padding: 60px 0 80px 0;
   }
   
-  .purpose-header {
-    margin-bottom: 40px;
+  .purpose-header-zone {
+    margin-bottom: 36px;
   }
   
-  .purpose-header h2 {
-    font-size: 2rem;
+  .purpose-main-title {
+    font-size: 2.2rem;
   }
   
-  .purpose-cards {
+  .purpose-subtitle-text {
+    font-size: 1.05rem;
+  }
+  
+  .purpose-cards-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    margin-top: 32px;
   }
   
-  .purpose-card {
-    padding: 25px;
+  .purpose-single-card {
+    padding: 26px 22px;
   }
   
-  .purpose-card h3 {
+  .purpose-card-title {
     font-size: 1.3rem;
   }
   
-  .purpose-card p {
-    font-size: 1rem;
+  .purpose-card-description {
+    font-size: 0.98rem;
   }
   
-  .card-icon {
-    width: 40px;
-    height: 40px;
+  .purpose-card-icon-box {
+    width: 44px;
+    height: 44px;
   }
   
-  .card-icon svg {
+  .purpose-card-icon-box svg {
     width: 20px;
     height: 20px;
+  }
+
+  .purpose-gradient-backdrop {
+    top: -30%;
+    left: -10%;
+    width: 120%;
+    height: 160%;
   }
 }
 
 @media (max-width: 480px) {
-  .purpose-main-section {
-    padding: 60px 0;
+  .purpose-section-wrapper {
+    padding: 50px 0 70px 0;
   }
   
-  .purpose-header h2 {
-    font-size: 1.8rem;
+  .purpose-main-title {
+    font-size: 1.95rem;
   }
   
-  .purpose-card {
-    padding: 20px;
+  .purpose-subtitle-text {
+    font-size: 1rem;
   }
   
-  .purpose-card h3 {
+  .purpose-single-card {
+    padding: 22px 20px;
+  }
+  
+  .purpose-card-title {
     font-size: 1.2rem;
   }
   
-  .card-icon {
-    width: 35px;
-    height: 35px;
+  .purpose-card-description {
+    font-size: 0.92rem;
+    line-height: 1.55;
   }
   
-  .card-icon svg {
+  .purpose-card-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .purpose-card-icon-box svg {
     width: 18px;
     height: 18px;
+  }
+
+  .purpose-gradient-backdrop {
+    top: -20%;
+    left: -5%;
+    width: 110%;
+    height: 140%;
+  }
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .purpose-gradient-backdrop,
+  .purpose-ambient-glow,
+  .purpose-main-content,
+  .purpose-single-card,
+  .purpose-card-icon-box {
+    transition: none;
+    animation: none;
+  }
+  
+  .purpose-single-card:hover {
+    transform: none;
+  }
+  
+  .purpose-card-icon-box:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .purpose-single-card {
+    border-color: rgba(168, 85, 247, 0.4);
+    background: rgba(30, 15, 45, 0.8);
+  }
+  
+  .purpose-card-description {
+    color: rgba(226, 232, 240, 0.95);
+  }
+  
+  .purpose-gradient-backdrop {
+    opacity: 0.8 !important;
   }
 }
