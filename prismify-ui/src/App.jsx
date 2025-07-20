@@ -6,10 +6,10 @@ import Layout from './layouts/MainLayout.jsx';
 // import Projects from './components/Projects/FeaturedProjects.jsx'
 import Home from './components/Hero/HeroSection.jsx'
 // import Contact from './components/LetsConnect/LetsConnect.jsx'
-// import ContactFormResponses from './pages/ContactResponses/ContactFormResponses.jsx';
-// import Login from './pages/Login/Login.jsx';
-// import ProtectedRoute from './ProtectedRoute';
-// import { AuthProvider } from './context/AuthContext.jsx';
+ import ContactFormResponses from './pages/ContactResponses/ContactFormResponses.jsx';
+ import Login from './pages/Login/Login.jsx';
+ import ProtectedRoute from './ProtectedRoute.jsx';
+ import { AuthProvider } from './context/AuthContext.jsx';
 import Services from './components/Services/Service.jsx'
 import TechStack from './components/TechStack/TechStack.jsx';
 import Contact from './components/Contact/Contact.jsx';
@@ -17,7 +17,7 @@ import Projects from './components/Projects/Projects.jsx'
 
 function App() {
   return (
-    // <AuthProvider>  
+     <AuthProvider>  
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -31,11 +31,11 @@ function App() {
             <Route path="projects" element={<Projects />} />
             <Route path="contact" element={<Contact />} /> */}
           </Route>
-          {/* <Route path="/contacts/display" element={<ProtectedRoute><ContactFormResponses /></ProtectedRoute>} />
-          <Route path="/admin/login" element={<Login />} /> */}
+          <Route path="/contacts/display" element={<ProtectedRoute><ContactFormResponses /></ProtectedRoute>} />
+          <Route path="/admin/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
-    // </AuthProvider>
+     </AuthProvider>
   );
 }
 
