@@ -10,13 +10,14 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
 
   // ✅ Define navigation handler
   const handleNavClick = (path) => {
+    
     navigate(path);
     setIsMenuOpen(false); // optional: auto-close menu on mobile
   };
   return (
     <header className="main-header">
       <div className="header-container">
-        <div className="brand-logo" onClick={() => handleNavClick('home')}>
+        <div className="brand-logo" onClick={() => handleNavClick('/')}>
 
           <span className="brand-logo-text">PrismifyCore</span>
         </div>

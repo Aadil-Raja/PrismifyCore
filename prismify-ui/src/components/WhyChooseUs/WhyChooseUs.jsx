@@ -102,7 +102,8 @@ const benefits = [
             </h2>
             <div className="why-choose-typewriter-container">
               <p className="why-choose-typewriter-text">
-                {typedText}
+                {/* {typedText} */}
+                We're not just another development agency. We're your technology partners.
                 <span className="why-choose-cursor">|</span>
               </p>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -27,7 +28,14 @@ const Footer = () => {
                   <div className="prismify-footer-column-header">
                     <h4 className="prismify-footer-column-title">Follow</h4>
                   </div>
-                  {/* Social links can be added here */}
+                  <div className="prismify-footer-social">
+                    <a href="https://www.instagram.com/prismifycore?igsh=MWYwamp0bXBqeHNzcQ==" target="_blank" rel="noopener noreferrer" className="prismify-footer-social-link">
+                      <FaInstagram size={40} color="#E4405F" />
+                    </a>
+                    <a href="https://www.linkedin.com/company/prismifycore/" target="_blank" rel="noopener noreferrer" className="prismify-footer-social-link">
+                      <FaLinkedin size={40} color="#0A66C2" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -36,7 +44,7 @@ const Footer = () => {
         <div className="prismify-footer-bottom">
           <div className="prismify-footer-bottom-content">
             <div className="prismify-footer-copyright">
-              <p>&copy; 2024 PrismifyCore. All rights reserved.</p>
+              <p>© 2024 PrismifyCore. All rights reserved.</p>
             </div>
           </div>
         </div>

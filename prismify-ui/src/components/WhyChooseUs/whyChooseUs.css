@@ -32,6 +32,7 @@
   background-clip: text;
   letter-spacing: -0.02em;
   line-height: 1.1;
+  /* text-shadow: 0 0 30px rgba(168, 85, 247, 0.3); */
   position: relative;
 }
 
@@ -42,18 +43,22 @@
 }
 
 .why-choose-typewriter-text {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: rgba(139, 92, 246, 0.9);
   font-style: italic;
   letter-spacing: 0.5px;
   text-align: center;
   margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  
 }
 
 .why-choose-cursor {
   animation: why-choose-blink 1s infinite;
   color: rgba(139, 92, 246, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  
 }
 
 @keyframes why-choose-blink {

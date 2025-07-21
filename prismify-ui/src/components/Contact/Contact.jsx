@@ -117,7 +117,8 @@ const Contact = () => {
             <div className="contact-hero-content">
               <h1 className="contact-main-title">Let's Connect</h1>
               <p className="contact-main-subtitle">
-                {typedText}
+                {/* {typedText} */}
+                Ready to transform your ideas into powerful digital solutions? Let's start the conversation.
                 <span className="contact-cursor">|</span>
               </p>
             </div>

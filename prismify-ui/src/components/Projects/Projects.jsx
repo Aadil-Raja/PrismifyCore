@@ -64,9 +64,15 @@ const Projects = () => {
           <div className="projects-hero-section" ref={heroRef}>
             <div className="projects-hero-content">
               <h1 className="projects-main-title">Featured Projects</h1>
-              <p className="projects-main-subtitle">
+              <div className="projects-typewriter-container">
+              <p className="projects-typewriter-text">
                 Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
+                <span className="projects-cursor">|</span>
               </p>
+            </div>
+              {/* <p className="projects-main-subtitle">
+                Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
+              </p> */}
             </div>
           </div>
 

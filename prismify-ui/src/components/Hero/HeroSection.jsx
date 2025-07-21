@@ -4,11 +4,18 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './HeroSection.css';
 import Purpose from '../Purpose/Purpose'
 import WhyChooseUs from '../WhyChooseUs/WhyChooseUs';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = ({ scrollToSection }) => {
   const [textIndex, setTextIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  
+  const navigate = useNavigate();
+
+  const handleNavClick = (path) => {
+    
+    navigate(path);
+    
+  };
   const rotatingTexts = [
     'Illuminate Innovation',
     'Transform Ideas',
@@ -44,8 +51,8 @@ const HeroSection = ({ scrollToSection }) => {
                 and AI-powered automation that drives exceptional results.
               </p>
               <div className="hero-action-buttons">
-                <button className="primary-cta-btn" onClick={() => scrollToSection('contact')}>Get Started</button>
-                <button className="secondary-cta-btn" onClick={() => scrollToSection('services')}>Explore Services</button>
+                <button className="primary-cta-btn" onClick={() => handleNavClick('/contact')}>Get Started</button>
+                <button className="secondary-cta-btn" onClick={() => handleNavClick('/services')}>Explore Services</button>
               </div>
             </div>
             <div className="hero-visual-section">

@@ -35,9 +35,15 @@ const Purpose = () => {
         <div className={`purpose-main-content ${isVisible ? 'purpose-visible' : ''}`}>
           <div className="purpose-header-zone">
             <h2 className="purpose-main-title">Our Purpose</h2>
-            <p className="purpose-subtitle-text">
+            <div className="purpose-typewriter-container">
+              <p className="purpose-typewriter-text">
+                Driven by innovation and guided by excellence.
+                <span className="purpose-cursor">|</span>
+              </p>
+            </div>
+            {/* <p className="purpose-subtitle-text">
               Driven by innovation and guided by excellence
-            </p>
+            </p> */}
           </div>
           
           <div className="purpose-cards-grid">

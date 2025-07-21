@@ -72,9 +72,15 @@ const Services = () => {
           <div className="services-hero-section" ref={heroRef}>
             <div className="services-hero-content">
               <h1 className="services-main-title">Our Services</h1>
-              <p className="services-main-subtitle">
+              <div className="service-typewriter-container">
+              <p className="service-typewriter-text">
                 Comprehensive solutions to transform your digital presence and streamline your business operations.
+                <span className="service-cursor">|</span>
               </p>
+            </div>
+              {/* <p className="services-main-subtitle">
+                Comprehensive solutions to transform your digital presence and streamline your business operations.
+              </p> */}
             </div>
           </div>
 

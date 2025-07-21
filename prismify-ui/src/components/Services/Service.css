@@ -12,8 +12,9 @@
 /* ===== HERO SECTION ===== */
 .services-hero-section {
   text-align: center;
-  padding: 60px 20px;
-  margin-bottom: 80px;
+  padding: 20px 20px;
+  padding-top: 60px;
+  margin-bottom: 30px;
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,6 +41,34 @@
   letter-spacing: -0.02em;
   line-height: 1.1;
   position: relative;
+}
+.service-typewriter-container {
+  margin: 16px 0;
+  min-height: 32px;
+}
+
+.service-typewriter-text {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: rgba(139, 92, 246, 0.9);
+  font-style: italic;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  
+}
+
+.service-cursor {
+  animation: service-blink 1s infinite;
+  color: rgba(139, 92, 246, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  
+}
+
+@keyframes service-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .services-main-subtitle {

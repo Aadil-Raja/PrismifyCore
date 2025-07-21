@@ -95,9 +95,15 @@ const TechStack = () => {
           <div className="techstack-header-section" ref={headerRef}>
             <div className="techstack-header-content">
               <h1 className="techstack-main-title">Tech Stack</h1>
-              <p className="techstack-main-subtitle">
+              <div className="techstack-typewriter-container">
+              <p className="techstack-typewriter-text">
                 Cutting-edge technologies and frameworks powering modern applications and digital solutions.
+                <span className="techstack-cursor">|</span>
               </p>
+            </div>
+              {/* <p className="techstack-main-subtitle">
+                Cutting-edge technologies and frameworks powering modern applications and digital solutions.
+              </p> */}
             </div>
           </div>
 
