@@ -8,7 +8,6 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 75, 240, 0.2);
   transition: all 0.3s ease;
-  
 }
 
 .header-container {
@@ -16,7 +15,9 @@
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .brand-logo {
@@ -24,19 +25,22 @@
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  flex-shrink: 0; /* Prevent logo from shrinking */
 }
 
 .brand-logo-image {
-  height: 180px;
-  width: auto;
+  height: 55px; /* Made larger for desktop */
+  width: 55px;
   object-fit: contain;
+  border-radius: 8px; /* Optional: adds a nice touch */
 }
 
 .brand-logo-text {
-  font-size: 1.5rem;
+  font-size: 1.7rem; /* Increased from 1.5rem */
   font-weight: 700;
   color: #fff;
   text-decoration: none;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .primary-nav {
@@ -54,6 +58,7 @@
   padding: 8px 16px;
   border-radius: 8px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .primary-nav button:hover {
@@ -70,6 +75,7 @@
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
+  flex-shrink: 0;
 }
 
 .hamburger-menu span {
@@ -93,7 +99,37 @@
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* Tablet responsiveness */
+@media (max-width: 992px) {
+  .header-container {
+    padding: 0 15px;
+  }
+  
+  .primary-nav {
+    gap: 20px;
+  }
+  
+  .primary-nav button {
+    font-size: 15px;
+    padding: 6px 12px;
+  }
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+  .header-container {
+    padding: 0 15px;
+  }
+  
+  .brand-logo-image {
+    height: 40px;
+    width: 40px;
+  }
+  
+  .brand-logo-text {
+    font-size: 1.3rem;
+  }
+  
   .hamburger-menu {
     display: flex;
   }
@@ -159,20 +195,56 @@
     animation: slideInLeft 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.4s forwards;
   }
   
+  .primary-nav-open button:nth-child(5) {
+    animation: slideInLeft 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
+  }
+  
   .primary-nav button:hover {
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(219, 39, 119, 0.15) 100%);
     transform: translateX(8px);
     box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
   }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 12px;
+  }
   
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-20px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  .brand-logo {
+    gap: 8px;
+  }
+  
+  .brand-logo-image {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .brand-logo-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .brand-logo-text {
+    font-size: 1rem;
+  }
+  
+  .brand-logo-image {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

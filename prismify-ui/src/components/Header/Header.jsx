@@ -2,7 +2,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
-// import logo from '../../assets/logo_with_no_bg.png';
 
 const Header = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
@@ -18,15 +17,19 @@ const Header = ({ isMenuOpen, setIsMenuOpen }) => {
     <header className="main-header">
       <div className="header-container">
         <div className="brand-logo" onClick={() => handleNavClick('/')}>
-
+          <img 
+            src="/android-chrome-192x192.png"
+            alt="PrismifyCore Logo" 
+            className="brand-logo-image" 
+          />
           <span className="brand-logo-text">PrismifyCore</span>
         </div>
         <nav className={`primary-nav ${isMenuOpen ? 'primary-nav-open' : ''}`}>
           <button onClick={() => handleNavClick('/')}>Home</button>
           <button onClick={() => handleNavClick('services')}>Services</button>
-          <button onClick={() => handleNavClick('techstack')}>Tech Stack</button>
-          <button onClick={() => handleNavClick('/projects')}>Projects</button>
-          <button onClick={() => handleNavClick('/contact')}>Contact</button>
+          <button onClick={() => handleNavClick('technologies')}>Technologies</button>
+          <button onClick={() => handleNavClick('projects')}>Projects</button>
+          <button onClick={() => handleNavClick('contact')}>Contact</button>
           
         </nav>
         <button
