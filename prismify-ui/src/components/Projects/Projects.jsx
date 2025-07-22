@@ -28,55 +28,54 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'MaslaFix – Service Marketplace Platform',
-      challenge: 'People struggled to find reliable, verified professionals for everyday tasks like tutoring or home repairs.',
-      solution: 'Built a full-stack platform that connects clients with service providers through real-time messaging, secure billing, and dynamic dashboards.',
-      technologies: ['React.js', 'Node.js', 'MySQL', 'WebSockets', 'JWT'],
-      image: '/masla-fix.jpg',
-     
+      title: 'BookNGo – Travel Booking Platform',
+      challenge: 'Users struggled to search and book flights, hotels, and packages from a single, user-friendly interface.',
+      solution: 'Built a full-stack platform with seamless search, filtering, bookings, and secure admin portal for management.',
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT'],
+      image: '/bookngo.jpg',
     },
     {
       id: 2,
+      title: 'Person Recognition Using Gait Matching',
+      challenge: 'Traditional biometric systems like face/fingerprint recognition can fail under occlusions or distance.',
+      solution: 'Developed a lightweight gait recognition model using CNN and CASIA-B dataset with person-specific features.',
+      technologies: ['Python', 'PyTorch', 'CASIA-B', 'NumPy', 'OpenCV'],
+      image: '/gait-recognition.png',
+    },
+    {
+      id: 3,
       title: 'AI Sales Workflow Automation',
       challenge: 'Sales teams spent excessive time on repetitive follow-ups and manual outreach sequences.',
       solution: 'Designed an n8n automation flow powered by OpenAI agents for intelligent, context-aware email follow-ups and lead handling.',
       technologies: ['n8n', 'OpenAI API', 'JavaScript'],
       image: '/pipedrive.jpg',
-     
     },
     {
-      id: 3,
+      id: 4,
       title: 'Skiing Analysis via Computer Vision',
       challenge: 'Analyzing skier posture and motion in real-time for performance feedback and training insights.',
       solution: 'Developed a CV-based system using pose estimation and motion detection to evaluate and visualize skier movement.',
       technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
       image: './skiing-cv-preview.jpg',
-     
     }
   ];
 
   return (
     <div className="app">
-      {/* Main content using container from index.css */}
       <div className="container">
         <div className="projects-main-wrapper">
-          {/* Hero section */}
           <div className="projects-hero-section" ref={heroRef}>
             <div className="projects-hero-content">
               <h1 className="projects-main-title">Featured Projects</h1>
               <div className="projects-typewriter-container">
-              <p className="projects-typewriter-text">
-                Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
-                <span className="projects-cursor">|</span>
-              </p>
-            </div>
-              {/* <p className="projects-main-subtitle">
-                Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
-              </p> */}
+                <p className="projects-typewriter-text">
+                  Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
+                  <span className="projects-cursor">|</span>
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Projects grid */}
           <div className="projects-grid-section" ref={gridRef}>
             <div className="projects-grid-container">
               {projects.map((project, index) => (
@@ -87,7 +86,6 @@ const Projects = () => {
                 >
                   <div className="project-card-glow"></div>
                   <div className="project-card-content">
-                    {/* Image section */}
                     <div className="project-card-image-container">
                       <img 
                         src={project.image} 
@@ -101,7 +99,6 @@ const Projects = () => {
                     </div>
                     
                     <div className="project-card-header">
-                    
                       <div className="project-card-number">
                         {project.id.toString().padStart(2, '0')}
                       </div>
@@ -138,7 +135,6 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Background Effects */}
       <div className="projects-background-effects">
         <div className="projects-particle projects-particle-1"></div>
         <div className="projects-particle projects-particle-2"></div>
