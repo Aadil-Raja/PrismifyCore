@@ -28,11 +28,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'BookNGo – Travel Booking Platform',
+      title: 'Travel Booking Platform',
       challenge: 'Users struggled to search and book flights, hotels, and packages from a single, user-friendly interface.',
       solution: 'Built a full-stack platform with seamless search, filtering, bookings, and secure admin portal for management.',
       technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT'],
-      image: '/bookngo.jpg',
+      image: '/bookngo.png',
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ const Projects = () => {
       challenge: 'Traditional biometric systems like face/fingerprint recognition can fail under occlusions or distance.',
       solution: 'Developed a lightweight gait recognition model using CNN and CASIA-B dataset with person-specific features.',
       technologies: ['Python', 'PyTorch', 'CASIA-B', 'NumPy', 'OpenCV'],
-      image: '/gait-recognition.png',
+      image: '/gait-recognition-2.png',
     },
     {
       id: 3,
@@ -56,8 +56,17 @@ const Projects = () => {
       challenge: 'Analyzing skier posture and motion in real-time for performance feedback and training insights.',
       solution: 'Developed a CV-based system using pose estimation and motion detection to evaluate and visualize skier movement.',
       technologies: ['Python', 'OpenCV', 'MediaPipe', 'NumPy'],
-      image: './skiing-cv-preview.jpg',
+      image: '/skiing-cv-preview.png',
+    },
+    {
+      id: 5,
+      title: 'LangChain Tool Calling Agent',
+      challenge: 'Integrating LLMs with external APIs and functions often lacks automation and dynamic decision-making capabilities.',
+      solution: 'Built an intelligent agent using LangChain that interprets user intent, chooses the right tool (e.g., weather API), executes it, and responds with results. Supports multi-step reasoning and chaining.',
+      technologies: ['LangChain', 'OpenAI', 'Python', 'AgentExecutor', 'PromptTemplate'],
+      image: '/tool-calling-agent.png',
     }
+
   ];
 
   return (
