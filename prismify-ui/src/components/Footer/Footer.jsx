@@ -20,7 +20,7 @@ const Footer = () => {
                   </div>
                   <div className="prismify-footer-contact">
                     <a href="mailto:prismifycore@gmail.com" className="prismify-footer-email-btn">
-                      prismifycore@gmail.com
+                      contact@prismifycore.com
                     </a>
                   </div>
                 </div>

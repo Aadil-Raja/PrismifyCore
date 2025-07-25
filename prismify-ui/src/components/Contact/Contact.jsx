@@ -85,8 +85,9 @@ const Contact = () => {
         </svg>
       ),
       title: "Email",
-      info: "prismifycore@gmail.com"
-    },
+      info: "contact@prismifycore.com"
+    }
+    //,
     // {
     //   icon: (
     //     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,16 +97,16 @@ const Contact = () => {
     //   title: "Phone",
     //   info: "+1 (555) 123-4567"
     // },
-    {
-      icon: (
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      title: "Location",
-      info: "Karachi, Pakistan"
-    }
+    // {
+    //   icon: (
+    //     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    //       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    //       <circle cx="12" cy="10" r="3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    //     </svg>
+    //   ),
+    //   title: "Location",
+    //   info: "Karachi, Pakistan"
+    // }
   ];
 
   return (

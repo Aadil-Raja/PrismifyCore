@@ -25,7 +25,6 @@ import {
 
 const TechStack = () => {
   const headerRef = useRef(null);
-  const stackRef = useRef(null);
   
   useEffect(() => {
     const observerOptions = {
@@ -42,7 +41,6 @@ const TechStack = () => {
     }, observerOptions);
 
     if (headerRef.current) observer.observe(headerRef.current);
-    if (stackRef.current) observer.observe(stackRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -188,13 +186,13 @@ const TechStack = () => {
     category: "E-commerce"
   },
   {
-  id: 18,
-  tech: "n8n",
-  description: "Open‑source workflow automation & data integration platform",
-  icon: <SiN8N size={40} color="#FF7722" />, // you can use a custom SVG if there isn’t a react‑icons entry
-  color: "#F97316",
-  category: "Automation & Integration"
-}
+    id: 18,
+    tech: "n8n",
+    description: "Open‑source workflow automation & data integration platform",
+    icon: <SiN8N size={40} color="#FF7722" />,
+    color: "#F97316",
+    category: "Automation & Integration"
+  }
 ];
 
   const categories = [...new Set(techStackData.map(item => item.category))];
@@ -207,18 +205,15 @@ const TechStack = () => {
             <div className="techstack-header-content">
               <h1 className="techstack-main-title">Technologies</h1>
               <div className="techstack-typewriter-container">
-              <p className="techstack-typewriter-text">
-                Cutting-edge technologies and frameworks powering modern applications and digital solutions.
-                <span className="techstack-cursor">|</span>
-              </p>
-            </div>
-              {/* <p className="techstack-main-subtitle">
-                Cutting-edge technologies and frameworks powering modern applications and digital solutions.
-              </p> */}
+                <p className="techstack-typewriter-text">
+                  Cutting-edge technologies and frameworks powering modern applications and digital solutions.
+                  <span className="techstack-cursor">|</span>
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="techstack-content-section" ref={stackRef}>
+          <div className="techstack-content-section">
             {categories.map((category, categoryIndex) => (
               <div key={category} className="techstack-category-section">
                 <div className="techstack-category-header">
