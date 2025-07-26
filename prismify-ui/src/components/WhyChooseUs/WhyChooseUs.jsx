@@ -78,7 +78,7 @@ const benefits = [
   {
     icon: <Users className="w-6 h-6" />,
     title: "Expert Team",
-    description: "Experienced developers specializing in React and Node.js"
+    description: "Experienced developers"
   },
   {
     icon: <ShieldCheck className="w-6 h-6" />,
