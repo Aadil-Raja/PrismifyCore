@@ -42,6 +42,7 @@
   line-height: 1.1;
   position: relative;
 }
+
 .service-typewriter-container {
   margin: 16px 0;
   min-height: 32px;
@@ -56,13 +57,11 @@
   text-align: center;
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
-  
 }
 
 .service-cursor {
   animation: service-blink 1s infinite;
   color: rgba(139, 92, 246, 0.8);
-  /* color: rgba(255, 255, 255, 0.8); */
   margin-left: 3px;
 }
 
@@ -313,9 +312,9 @@
   top: 35%;
   right: 5%;
   animation-delay: -15s;
-  /* animation-oriented: 9s; */
 }
 
+/* Animations */
 @keyframes services-float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);

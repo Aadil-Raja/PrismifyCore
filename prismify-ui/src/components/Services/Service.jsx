@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Service.css';
-import { FaGlobe, FaRobot, FaCommentDots, FaChartLine, FaPlug, FaMobileAlt } from 'react-icons/fa';
+import { FaGlobe, FaRobot, FaCommentDots, FaChartLine, FaPlug, FaLaptopCode } from 'react-icons/fa';
 
 const Services = () => {
   const heroRef = useRef(null);
@@ -59,9 +59,9 @@ const Services = () => {
     },
     {
       id: 6,
-      title: "Mobile Apps",
-      description: "Develop high-performance Android & iOS apps using Flutter or React Native.",
-      icon: <FaMobileAlt size={40} color="#00DDEB" />
+      title: "Software Development",
+      description: "Tailored software solutions like POS, CRM Systems to meet your unique business needs.",
+      icon: <FaLaptopCode size={40} color="#00DDEB" />
     }
   ];
 
@@ -78,9 +78,6 @@ const Services = () => {
                 <span className="service-cursor">|</span>
               </p>
             </div>
-              {/* <p className="services-main-subtitle">
-                Comprehensive solutions to transform your digital presence and streamline your business operations.
-              </p> */}
             </div>
           </div>
 
