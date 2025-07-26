@@ -37,7 +37,7 @@ const Purpose = () => {
             <h2 className="purpose-main-title">Our Purpose</h2>
             <div className="purpose-typewriter-container">
               <p className="purpose-typewriter-text">
-                Driven by innovation and guided by excellence.
+                Driven by innovation and guided by excellence
                 <span className="purpose-cursor">|</span>
               </p>
             </div>

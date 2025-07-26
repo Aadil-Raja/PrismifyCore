@@ -3,7 +3,6 @@ import './Projects.css';
 
 const Projects = () => {
   const heroRef = useRef(null);
-  const gridRef = useRef(null);
   
   useEffect(() => {
     const observerOptions = {
@@ -20,7 +19,6 @@ const Projects = () => {
     }, observerOptions);
 
     if (heroRef.current) observer.observe(heroRef.current);
-    if (gridRef.current) observer.observe(gridRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -66,7 +64,6 @@ const Projects = () => {
       technologies: ['LangChain', 'OpenAI', 'Python', 'AgentExecutor', 'PromptTemplate'],
       image: '/tool-calling-agent.png',
     }
-
   ];
 
   return (
@@ -78,14 +75,14 @@ const Projects = () => {
               <h1 className="projects-main-title">Featured Projects</h1>
               <div className="projects-typewriter-container">
                 <p className="projects-typewriter-text">
-                  Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology.
+                  Explore our portfolio of innovative solutions that solve real-world problems through cutting-edge technology
                   <span className="projects-cursor">|</span>
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="projects-grid-section" ref={gridRef}>
+          <div className="projects-grid-section">
             <div className="projects-grid-container">
               {projects.map((project, index) => (
                 <div 

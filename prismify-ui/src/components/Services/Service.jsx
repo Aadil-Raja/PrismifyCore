@@ -74,7 +74,7 @@ const Services = () => {
               <h1 className="services-main-title">Our Services</h1>
               <div className="service-typewriter-container">
               <p className="service-typewriter-text">
-                Comprehensive solutions to transform your digital presence and streamline your business operations.
+                Comprehensive solutions to transform your digital presence and streamline your business operations
                 <span className="service-cursor">|</span>
               </p>
             </div>

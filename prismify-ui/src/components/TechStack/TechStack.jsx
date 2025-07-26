@@ -206,7 +206,7 @@ const TechStack = () => {
               <h1 className="techstack-main-title">Technologies</h1>
               <div className="techstack-typewriter-container">
                 <p className="techstack-typewriter-text">
-                  Cutting-edge technologies and frameworks powering modern applications and digital solutions.
+                  Cutting-edge technologies and frameworks powering modern applications and digital solutions
                   <span className="techstack-cursor">|</span>
                 </p>
               </div>

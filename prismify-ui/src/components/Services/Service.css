@@ -61,9 +61,9 @@
 
 .service-cursor {
   animation: service-blink 1s infinite;
-  color: rgba(139, 92, 246, 0.7);
-  color: rgba(255, 255, 255, 0.8);
-  
+  color: rgba(139, 92, 246, 0.8);
+  /* color: rgba(255, 255, 255, 0.8); */
+  margin-left: 3px;
 }
 
 @keyframes service-blink {
