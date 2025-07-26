@@ -49,8 +49,8 @@ const WhyChooseUs = () => {
 const features = [
   {
     icon: <Zap className="w-6 h-6" />,
-    title: "Modern React & Node.js Technology Stack",
-    description: "Cutting-edge development using the latest React and Node.js frameworks for optimal performance."
+    title: "Modern Technology Stack",
+    description: "Cutting-edge development using the latest frameworks for optimal performance."
   },
   {
     icon: <Award className="w-6 h-6" />,
